@@ -3,14 +3,17 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>
+    <!-- Insert your page title here-->
+    <!-- Insira o título da sua página aqui -->
+  </title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="Page title | Título da página">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="Page url | Link da página">
+  <meta property="og:image" content="./tile-wide.png">
 
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
@@ -25,7 +28,28 @@
 <body>
 
   <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <div class="main">
+    <header>
+      <img src="./tile.png" alt="">
+      <h1>Page name | Nome da página</h1>
+    </header>
+
+    <div class="social">
+      <a class="instagram" src="">
+        <img src="" alt="instagram logo">
+      </a>
+      <a class="twitter" src="">
+        <img src="" alt="twitter logo">
+      </a>
+      <a class="facebook" src="">
+        <img src="" alt="facebook logo">
+      </a>
+    </div>
+
+    <div id="links"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
