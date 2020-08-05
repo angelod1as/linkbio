@@ -5,7 +5,7 @@ import { Container, Content } from './styles';
 const SignIn: React.FC = () => {
   return (
     <Container>
-      <Content>Your react website here!</Content>
+      <Title>Create your link list</Title>
     </Container>
   );
 };

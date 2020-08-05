@@ -1,7 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
-
-import Route from './Route';
+import { Switch, Route } from 'react-router-dom';
 
 import Default from '../pages/Default';
 
