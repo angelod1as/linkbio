@@ -1,18 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  height: 100vh;
-
-  display: flex;
-  align-items: stretch;
-`;
-
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  max-width: 700px;
-`;
+export const Container = styled.div``;
+export const Title = styled.h1``;
+export const Explanation = styled.div``;
+export const Import = styled.div``;
+export const Form = styled.div``;
+export const Export = styled.div``;
