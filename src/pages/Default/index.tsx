@@ -1,26 +1,24 @@
 import React from 'react';
 
-import { Container, Explanation, Export, Form, Import, Title } from './styles';
+import { Container, Export } from './styles';
 
-const SignIn: React.FC = () => {
+import Import from './components/Import';
+import Header from './components/Header';
+import Form from './components/Form';
+
+const Default: React.FC = () => {
   return (
     <Container>
-      <Title>Create your link list</Title>
-      <Explanation>
-        <h2>How to use</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
-          magnam corporis fugit, repellat odit officiis doloribus voluptatibus
-          voluptate, ratione quae molestias mollitia dolorum, iste deserunt ut.
-          Suscipit a nobis ut!
-        </p>
-      </Explanation>
+      {/* <Header /> */}
 
-      <Import />
+      {/* <Import /> */}
+
       <Form />
+
+      {/* Sidebar showing how it's going to look */}
       <Export />
     </Container>
   );
 };
 
-export default SignIn;
+export default Default;

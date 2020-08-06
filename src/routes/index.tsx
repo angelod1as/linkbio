@@ -7,6 +7,7 @@ const Routes: React.FC = () => {
   return (
     <Switch>
       <Route path="/" exact component={Default} />
+      <Route path="/:lang" component={Default} />
     </Switch>
   );
 };
