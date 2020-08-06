@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Header from './Header';
-import Social from './Social';
+// import Header from './Header';
+// import Social from './Social';
 import Links from './Links';
 
 const Styled = styled.div`

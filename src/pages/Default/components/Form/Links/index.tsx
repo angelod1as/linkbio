@@ -3,95 +3,111 @@ import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
 
 const Styled = styled.div``;
+const Drag = styled.div`
+  padding: 10px;
+  background-color: red;
+  margin: 10px 0;
+`;
 
-interface LinksInterface {
+interface ILinks {
   title: string;
   url: string;
 }
 
-interface ChangeLinkInterface {
-  title?: string;
-  url?: string;
-  index: string;
-}
+const Links = () => {
+  const [currentTitle, setCurrentTitle] = useState('');
+  const [currentUrl, setCurrentUrl] = useState('');
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+  const [editing, setEditing] = useState(false);
+  const [links, setLinks] = useState<ILinks[]>([]);
 
-const Links: React.FC = () => {
-  const [links, setLinks] = useState<LinksInterface[]>([]);
-
-  const addLink = useCallback(() => {
+  const editLinkList = useCallback(() => {
     const newLinks = [...links];
-    newLinks.push({ title: '', url: '' });
+
+    if (currentIndex !== null) {
+      newLinks[currentIndex] = {
+        title: currentTitle,
+        url: currentUrl,
+      };
+    }
+
     setLinks(newLinks);
-  }, [links]);
+    setCurrentTitle('');
+    setCurrentUrl('');
+    setCurrentIndex(null);
+    setEditing(false);
+  }, [currentIndex, currentTitle, currentUrl, links]);
 
-  const changeLink = useCallback(
-    ({ index, title, url }: ChangeLinkInterface) => {
-      const position = +index.split('link-')[0];
+  const changeLinkList = useCallback(() => {
+    setLinks([
+      {
+        title: currentTitle,
+        url: currentUrl,
+      },
+      ...links,
+    ]);
+    setCurrentTitle('');
+    setCurrentUrl('');
+  }, [currentTitle, currentUrl, links]);
 
-      const link = links[position];
+  const editLink = useCallback((link: ILinks, index: number) => {
+    setCurrentTitle(link.title);
+    setCurrentUrl(link.url);
+    setCurrentIndex(index);
+    setEditing(true);
+  }, []);
 
-      if (title) {
-        link.title = title;
-      }
-
-      if (url) {
-        link.url = url;
-      }
-
+  const removeLink = useCallback(
+    (index) => {
       const newLinks = [...links];
-      newLinks[position] = link;
-
+      newLinks.splice(index, 1);
       setLinks(newLinks);
-      console.log(links);
     },
     [links],
   );
+
+  const linkList = links.map((each, i) => (
+    <Drag className="link" key={uuid()}>
+      <a href={each.url}>{each.title}</a>
+      <button type="button" onClick={() => editLink(each, i)}>
+        Edit
+      </button>
+      <button type="button" onClick={() => removeLink(i)}>
+        Delete
+      </button>
+    </Drag>
+  ));
 
   return (
     <Styled>
       <h3>Links</h3>
 
-      <button type="button" onClick={addLink}>
-        Add new link
-      </button>
+      <form>
+        <label htmlFor="title">
+          Title
+          <input
+            type="text"
+            name="title"
+            value={currentTitle}
+            onChange={(e) => setCurrentTitle(e.target.value)}
+          />
+        </label>
 
-      <div className="links">
-        {links.map((each, i) => {
-          const index = `link-${i}`;
-          return (
-            <div className="link" key={uuid()} id={index}>
-              <label htmlFor="title">
-                Title
-                <input
-                  type="text"
-                  name="title"
-                  value={each.title}
-                  onChange={(e) =>
-                    changeLink({
-                      index,
-                      title: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <label htmlFor="url">
-                Url
-                <input
-                  type="text"
-                  name="url"
-                  value={each.url}
-                  onChange={(e) =>
-                    changeLink({
-                      index,
-                      url: e.target.value,
-                    })
-                  }
-                />
-              </label>
-            </div>
-          );
-        })}
-      </div>
+        <label htmlFor="url">
+          <input
+            type="text"
+            name="url"
+            value={currentUrl}
+            onChange={(e) => setCurrentUrl(e.target.value)}
+          />
+        </label>
+
+        <button type="button" onClick={editing ? editLinkList : changeLinkList}>
+          {editing ? 'Edit link' : 'Add new link'}
+        </button>
+      </form>
+
+      <div className="links">{linkList}</div>
     </Styled>
   );
 };

@@ -39,12 +39,6 @@
     "react/prop-types": "off",
     "no-unused-expressions": "off",
     "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
-      {
-        "allowExpressions": true
-      }
-    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -61,7 +55,14 @@
         ]
       }
     ],
-    "react/jsx-curly-newline": "off"
+    "react/jsx-curly-newline": "off",
+    "@typescript-eslint/interface-name-prefix": [
+      "error",
+      {
+          "prefixWithI": "always"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off"
   },
   "settings": {
     "import/resolver": {
