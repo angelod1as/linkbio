@@ -66,15 +66,45 @@ const Links = () => {
     [links],
   );
 
-  const linkList = links.map((each, i) => (
+  const moveLink = useCallback(
+    (direction, from) => {
+      const newLinks = [...links];
+      const to = direction === 'up' ? from - 1 : from + 1;
+
+      if (direction === 'up') {
+        newLinks.splice(to, 0, newLinks.splice(from, 1)[0]);
+      } else {
+        newLinks.splice(to, 0, newLinks.splice(from, 1)[0]);
+      }
+
+      setLinks(newLinks);
+    },
+    [links],
+  );
+
+  const linkList = links.map((each, index) => (
     <Drag className="link" key={uuid()}>
       <a href={each.url}>{each.title}</a>
-      <button type="button" onClick={() => editLink(each, i)}>
+      <button type="button" onClick={() => editLink(each, index)}>
         Edit
       </button>
-      <button type="button" onClick={() => removeLink(i)}>
+      <button type="button" onClick={() => removeLink(index)}>
         Delete
       </button>
+      {index === 0 ? (
+        ``
+      ) : (
+        <button type="button" onClick={() => moveLink('up', index)}>
+          ▲
+        </button>
+      )}
+      {index + 1 === links.length ? (
+        ''
+      ) : (
+        <button type="button" onClick={() => moveLink('down', index)}>
+          ▼
+        </button>
+      )}
     </Drag>
   ));
 
