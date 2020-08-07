@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-// import { RouteComponentProps } from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Container } from './styles';
@@ -28,9 +26,11 @@ const Default = ({
     params: { lang },
   },
 }: IParams) => {
-  // Handling language
   const { i18n } = useTranslation();
-  i18n.changeLanguage(lang);
+
+  useEffect(() => {
+    i18n.changeLanguage(lang);
+  }, [i18n, lang]);
 
   const [exported, setExported] = useState(false);
   const [socialList, setSocialList] = useState<ISocial>({
@@ -62,7 +62,7 @@ const Default = ({
 
   return (
     <Container>
-      <Header />
+      <Header lang={lang} />
 
       <Import setExported={setExported} />
 
