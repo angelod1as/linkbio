@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 const ImportDiv = styled.div``;
 
-const Import: React.FC = () => {
+interface IProps {
+  setExported: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Import = ({ setExported }: IProps) => {
   const [importType, setImportType] = useState('url');
+
+  const handleImport = useCallback(() => {
+    setExported(false);
+  }, [setExported]);
 
   return (
     <ImportDiv>
@@ -15,22 +23,22 @@ const Import: React.FC = () => {
       </p>
       <p>Copy and paste the final url or the generated self-hosted code</p>
       <form>
-        <label htmlFor="url">
+        <label htmlFor="import-url">
           Import link
           <input
             type="radio"
             name="import"
-            id="url"
+            id="import-url"
             checked={importType === 'url'}
             onChange={() => setImportType('url')}
           />
         </label>
-        <label htmlFor="code">
+        <label htmlFor="import-code">
           Import code
           <input
             type="radio"
             name="import"
-            id="code"
+            id="import-code"
             checked={importType === 'code'}
             onChange={() => setImportType('code')}
           />
@@ -43,7 +51,9 @@ const Import: React.FC = () => {
         <textarea name="import" id="import" cols={30} rows={10} />
       )}
 
-      <button type="submit">Import</button>
+      <button type="submit" onClick={handleImport}>
+        Import
+      </button>
     </ImportDiv>
   );
 };

@@ -33,12 +33,12 @@
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "import/prefer-default-export": "off",
+    "import/prefer-default-export": 0,
     "react/jsx-one-expression-per-line": 0,
-    "react/jsx-props-no-spreading": "off",
-    "react/prop-types": "off",
-    "no-unused-expressions": "off",
-    "@typescript-eslint/camelcase": "off",
+    "react/jsx-props-no-spreading": 0,
+    "react/prop-types": 0,
+    "no-unused-expressions": 0,
+    "@typescript-eslint/camelcase": 0,
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -55,14 +55,15 @@
         ]
       }
     ],
-    "react/jsx-curly-newline": "off",
+    "react/jsx-curly-newline": 0,
     "@typescript-eslint/interface-name-prefix": [
       "error",
       {
           "prefixWithI": "always"
       }
     ],
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "react/no-unescaped-entities": 0
   },
   "settings": {
     "import/resolver": {

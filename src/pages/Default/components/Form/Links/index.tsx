@@ -3,11 +3,6 @@ import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
 
 const Styled = styled.div``;
-const Drag = styled.div`
-  padding: 10px;
-  background-color: red;
-  margin: 10px 0;
-`;
 
 interface ILinks {
   title: string;
@@ -20,6 +15,14 @@ const Links = () => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [editing, setEditing] = useState(false);
   const [links, setLinks] = useState<ILinks[]>([]);
+  const [error, setError] = useState('');
+
+  const clean = useCallback(() => {
+    setCurrentTitle('');
+    setCurrentUrl('');
+    setEditing(false);
+    setError('');
+  }, []);
 
   const editLinkList = useCallback(() => {
     const newLinks = [...links];
@@ -32,23 +35,24 @@ const Links = () => {
     }
 
     setLinks(newLinks);
-    setCurrentTitle('');
-    setCurrentUrl('');
+    clean();
     setCurrentIndex(null);
-    setEditing(false);
-  }, [currentIndex, currentTitle, currentUrl, links]);
+  }, [clean, currentUrl, currentTitle, currentIndex, links]);
 
   const changeLinkList = useCallback(() => {
-    setLinks([
-      {
-        title: currentTitle,
-        url: currentUrl,
-      },
-      ...links,
-    ]);
-    setCurrentTitle('');
-    setCurrentUrl('');
-  }, [currentTitle, currentUrl, links]);
+    if (currentTitle === '' || currentUrl === '') {
+      setError('There must be some title and valid URL');
+    } else {
+      setLinks([
+        {
+          title: currentTitle,
+          url: currentUrl,
+        },
+        ...links,
+      ]);
+      clean();
+    }
+  }, [clean, currentUrl, currentTitle, links]);
 
   const editLink = useCallback((link: ILinks, index: number) => {
     setCurrentTitle(link.title);
@@ -83,7 +87,7 @@ const Links = () => {
   );
 
   const linkList = links.map((each, index) => (
-    <Drag className="link" key={uuid()}>
+    <div className="link" key={uuid()}>
       <a href={each.url}>{each.title}</a>
       <button type="button" onClick={() => editLink(each, index)}>
         Edit
@@ -105,7 +109,7 @@ const Links = () => {
           ▼
         </button>
       )}
-    </Drag>
+    </div>
   ));
 
   return (
@@ -135,6 +139,8 @@ const Links = () => {
         <button type="button" onClick={editing ? editLinkList : changeLinkList}>
           {editing ? 'Edit link' : 'Add new link'}
         </button>
+
+        {error ? <p>{error}</p> : ''}
       </form>
 
       <div className="links">{linkList}</div>

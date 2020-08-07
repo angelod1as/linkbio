@@ -5,7 +5,7 @@ const Styled = styled.div``;
 const Title = styled.h2``;
 const Explanation = styled.div``;
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <Styled>
       <Title>Create your link list</Title>

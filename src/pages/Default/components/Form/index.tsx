@@ -18,7 +18,7 @@ const Styled = styled.div`
   }
 `;
 
-const Form: React.FC = () => {
+const Form = () => {
   return (
     <Styled>
       {/* <Header /> */}

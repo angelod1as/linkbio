@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Container, Export } from './styles';
+import { Container } from './styles';
 
-// import Import from './components/Import';
-// import Header from './components/Header';
+import Import from './components/Import';
+import Header from './components/Header';
 import Form from './components/Form';
+import Export from './components/Export';
 
-const Default: React.FC = () => {
+const Default = () => {
+  const [exported, setExported] = useState(false);
+
   return (
     <Container>
-      {/* <Header /> */}
+      <Header />
 
-      {/* <Import /> */}
+      <Import setExported={setExported} />
 
       <Form />
 
       {/* Sidebar showing how it's going to look */}
-      <Export />
+      <Export exported={exported} setExported={setExported} />
     </Container>
   );
 };

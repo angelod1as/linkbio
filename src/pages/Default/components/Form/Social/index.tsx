@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Styled = styled.div``;
 
-const Social: React.FC = () => {
+const Social = () => {
   return (
     <Styled>
       <h3>Social</h3>

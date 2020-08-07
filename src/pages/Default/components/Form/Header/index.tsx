@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Styled = styled.div``;
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <Styled>
       <h2>Create your link list</h2>
