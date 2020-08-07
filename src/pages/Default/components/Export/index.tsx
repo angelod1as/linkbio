@@ -1,19 +1,24 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
+import ILists from '../../../../dtos/ILists';
+import templates from './templates';
 
 const ExportDiv = styled.div``;
 
-interface IProps {
+interface IProps extends ILists {
   exported: boolean;
   setExported: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Export = ({ exported, setExported }: IProps) => {
+const Export = ({ exported, setExported, social, header, links }: IProps) => {
   const [exportType, setExportType] = useState('url');
+  const [finalString, setFinalString] = useState('');
 
   const exportList = useCallback(() => {
     setExported(true);
-  }, [setExported]);
+    const string = templates({ social, header, links });
+    setFinalString(string);
+  }, [setExported, social, header, links]);
 
   return (
     <ExportDiv>
@@ -54,6 +59,17 @@ const Export = ({ exported, setExported }: IProps) => {
 
       {exported ? 'exportado!' : 'esperando export'}
 
+      {finalString ? (
+        <textarea
+          name="export"
+          id="export"
+          cols={30}
+          rows={10}
+          value={finalString}
+        />
+      ) : (
+        ''
+      )}
       {/* {exportType === 'url' ? (
         <input type="text" name="url" id="url-text" />
       ) : (

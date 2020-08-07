@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 import { Container } from './styles';
 
@@ -41,16 +42,28 @@ const Default = () => {
     },
   };
 
+  const HideTest = styled.div`
+    display: none;
+  `;
+
   return (
     <Container>
-      <Header />
+      <HideTest>
+        <Header />
 
-      <Import setExported={setExported} />
+        <Import setExported={setExported} />
+      </HideTest>
 
       <Form social={lists.social} header={lists.header} links={lists.links} />
 
       {/* Sidebar showing how it's going to look */}
-      <Export exported={exported} setExported={setExported} />
+      <Export
+        exported={exported}
+        setExported={setExported}
+        social={lists.social}
+        header={lists.header}
+        links={lists.links}
+      />
     </Container>
   );
 };

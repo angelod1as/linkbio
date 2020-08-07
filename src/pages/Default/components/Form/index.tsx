@@ -20,11 +20,17 @@ const Styled = styled.div`
   }
 `;
 
+const HideTest = styled.div`
+  display: none;
+`;
+
 const Form = ({ social, header, links }: ILists) => {
   return (
     <Styled>
-      <Header list={header.list} hook={header.hook} />
-      <Social list={social.list} hook={social.hook} />
+      <HideTest>
+        <Header list={header.list} hook={header.hook} />
+        <Social list={social.list} hook={social.hook} />
+      </HideTest>
       <Links list={links.list} hook={links.hook} />
     </Styled>
   );
