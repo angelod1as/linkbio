@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import ISocial from '../../../../../dtos/ISocial';
 
 const Styled = styled.div``;
 
-const Social = () => {
+interface IProps {
+  list: ISocial;
+  hook: React.Dispatch<React.SetStateAction<ISocial>>;
+}
+
+const Social = ({ list, hook }: IProps) => {
+  const information = list;
+  const setInformation = hook;
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newInformation = { ...information };
+      const { id, value } = e.target;
+
+      newInformation[id] = value;
+
+      setInformation(newInformation);
+    },
+    [setInformation, information],
+  );
+
   return (
     <Styled>
       <h3>Social</h3>
@@ -15,7 +36,12 @@ const Social = () => {
             http://www.instagram.com/cronofobico
           </a>
         </small>
-        <input type="text" name="instagram" id="instagram" />
+        <input
+          type="text"
+          name="instagram"
+          id="instagram"
+          onChange={(e) => handleChange(e)}
+        />
       </label>
 
       <label htmlFor="twitter">
@@ -26,13 +52,23 @@ const Social = () => {
             http://www.twitter.com/oicronofobico
           </a>
         </small>
-        <input type="text" name="twitter" id="twitter" />
+        <input
+          type="text"
+          name="twitter"
+          id="twitter"
+          onChange={(e) => handleChange(e)}
+        />
       </label>
 
       <label htmlFor="facebook">
         Facebook url
         <small>example: http://www.facebook.com/please-god-no</small>
-        <input type="text" name="facebook" id="facebook" />
+        <input
+          type="text"
+          name="facebook"
+          id="facebook"
+          onChange={(e) => handleChange(e)}
+        />
       </label>
 
       <label htmlFor="linkedin">
@@ -43,7 +79,12 @@ const Social = () => {
             https://www.linkedin.com/in/angelod1as/
           </a>
         </small>
-        <input type="text" name="linkedin" id="linkedin" />
+        <input
+          type="text"
+          name="linkedin"
+          id="linkedin"
+          onChange={(e) => handleChange(e)}
+        />
       </label>
     </Styled>
   );

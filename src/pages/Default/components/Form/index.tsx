@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import Header from './Header';
-// import Social from './Social';
+import ILists from '../../../../dtos/ILists';
+
+import Header from './Header';
+import Social from './Social';
 import Links from './Links';
 
 const Styled = styled.div`
@@ -18,12 +20,12 @@ const Styled = styled.div`
   }
 `;
 
-const Form = () => {
+const Form = ({ social, header, links }: ILists) => {
   return (
     <Styled>
-      {/* <Header /> */}
-      {/* <Social /> */}
-      <Links />
+      <Header list={header.list} hook={header.hook} />
+      <Social list={social.list} hook={social.hook} />
+      <Links list={links.list} hook={links.hook} />
     </Styled>
   );
 };

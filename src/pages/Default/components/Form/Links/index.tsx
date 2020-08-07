@@ -1,20 +1,24 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
+import ILinks from '../../../../../dtos/ILinks';
 
 const Styled = styled.div``;
 
-interface ILinks {
-  title: string;
-  url: string;
+interface IProps {
+  list: ILinks[];
+  hook: React.Dispatch<React.SetStateAction<ILinks[]>>;
 }
 
-const Links = () => {
+const Links = ({ list, hook }: IProps) => {
+  // hoisted
+  const links = list;
+  const setLinks = hook;
+
   const [currentTitle, setCurrentTitle] = useState('');
   const [currentUrl, setCurrentUrl] = useState('');
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [editing, setEditing] = useState(false);
-  const [links, setLinks] = useState<ILinks[]>([]);
   const [error, setError] = useState('');
 
   const clean = useCallback(() => {
@@ -37,7 +41,7 @@ const Links = () => {
     setLinks(newLinks);
     clean();
     setCurrentIndex(null);
-  }, [clean, currentUrl, currentTitle, currentIndex, links]);
+  }, [clean, currentUrl, currentTitle, currentIndex, links, setLinks]);
 
   const changeLinkList = useCallback(() => {
     if (currentTitle === '' || currentUrl === '') {
@@ -52,7 +56,7 @@ const Links = () => {
       ]);
       clean();
     }
-  }, [clean, currentUrl, currentTitle, links]);
+  }, [clean, currentUrl, currentTitle, links, setLinks]);
 
   const editLink = useCallback((link: ILinks, index: number) => {
     setCurrentTitle(link.title);
@@ -67,7 +71,7 @@ const Links = () => {
       newLinks.splice(index, 1);
       setLinks(newLinks);
     },
-    [links],
+    [links, setLinks],
   );
 
   const moveLink = useCallback(
@@ -83,7 +87,7 @@ const Links = () => {
 
       setLinks(newLinks);
     },
-    [links],
+    [links, setLinks],
   );
 
   const linkList = links.map((each, index) => (
