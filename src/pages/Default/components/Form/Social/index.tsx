@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import ISocial from '../../../../../dtos/ISocial';
 
 const Styled = styled.div``;
@@ -10,6 +11,7 @@ interface IProps {
 }
 
 const Social = ({ list, hook }: IProps) => {
+  const { t } = useTranslation();
   const information = list;
   const setInformation = hook;
 
@@ -27,11 +29,11 @@ const Social = ({ list, hook }: IProps) => {
 
   return (
     <Styled>
-      <h3>Social</h3>
+      <h3>{t('Social')}</h3>
       <label htmlFor="instagram">
-        Instagram url
+        {t('Instagram url')}
         <small>
-          example:
+          {t('example')}:
           <a href="http://www.instagram.com/cronofobico">
             http://www.instagram.com/cronofobico
           </a>
@@ -45,9 +47,9 @@ const Social = ({ list, hook }: IProps) => {
       </label>
 
       <label htmlFor="twitter">
-        Twitter url
+        {t('Twitter url')}
         <small>
-          example:
+          {t('example')}:
           <a href="http://www.twitter.com/oicronofobico">
             http://www.twitter.com/oicronofobico
           </a>
@@ -61,8 +63,8 @@ const Social = ({ list, hook }: IProps) => {
       </label>
 
       <label htmlFor="facebook">
-        Facebook url
-        <small>example: http://www.facebook.com/please-god-no</small>
+        {t('Facebook url')}
+        <small>{t('example')}: http://www.facebook.com/please-god-no</small>
         <input
           type="text"
           name="facebook"
@@ -72,9 +74,9 @@ const Social = ({ list, hook }: IProps) => {
       </label>
 
       <label htmlFor="linkedin">
-        LinkedIn url
+        {t('LinkedIn url')}
         <small>
-          example:
+          {t('example')}:
           <a href="https://www.linkedin.com/in/angelod1as/">
             https://www.linkedin.com/in/angelod1as/
           </a>

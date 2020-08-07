@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { Trans, useTranslation } from 'react-i18next';
 import IHeader from '../../../../../dtos/IHeader';
 
 const Styled = styled.div``;
@@ -10,6 +11,7 @@ interface IProps {
 }
 
 const Header = ({ list, hook }: IProps) => {
+  const { t } = useTranslation();
   const information = list;
   const setInformation = hook;
 
@@ -27,11 +29,11 @@ const Header = ({ list, hook }: IProps) => {
 
   return (
     <Styled>
-      <h2>Create your link list</h2>
+      <h2>{t('Form header title')}</h2>
 
-      <h3>Header</h3>
+      <h3>{t('Header')}</h3>
       <label htmlFor="name">
-        Page name
+        {t('Page name')}
         <input
           type="text"
           name="name"
@@ -41,10 +43,15 @@ const Header = ({ list, hook }: IProps) => {
       </label>
 
       <label htmlFor="image">
-        Photo
+        {t('Photo')}
         <small>
-          You can upload a picture using <a href="www.imgur.com">imgur</a>. Post
-          the final url here
+          <Trans i18nKey="photo imgur">
+            You can upload a picture using
+            <a href="http://www.imgur.com" target="_blank" rel="noreferrer">
+              imgur
+            </a>
+            . Post the final url here
+          </Trans>
         </small>
         <input
           type="url"

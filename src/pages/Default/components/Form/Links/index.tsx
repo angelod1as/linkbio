@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
+import { useTranslation } from 'react-i18next';
 import ILinks from '../../../../../dtos/ILinks';
 
 const Styled = styled.div``;
@@ -11,6 +12,7 @@ interface IProps {
 }
 
 const Links = ({ list, hook }: IProps) => {
+  const { t } = useTranslation();
   // hoisted
   const links = list;
   const setLinks = hook;
@@ -45,7 +47,7 @@ const Links = ({ list, hook }: IProps) => {
 
   const changeLinkList = useCallback(() => {
     if (currentTitle === '' || currentUrl === '') {
-      setError('There must be some title and valid URL');
+      setError(t('There must be some title and valid URL'));
     } else {
       setLinks([
         {
@@ -56,7 +58,7 @@ const Links = ({ list, hook }: IProps) => {
       ]);
       clean();
     }
-  }, [clean, currentUrl, currentTitle, links, setLinks]);
+  }, [clean, currentUrl, currentTitle, links, setLinks, t]);
 
   const editLink = useCallback((link: ILinks, index: number) => {
     setCurrentTitle(link.title);
@@ -94,10 +96,10 @@ const Links = ({ list, hook }: IProps) => {
     <div className="link" key={uuid()}>
       <a href={each.url}>{each.title}</a>
       <button type="button" onClick={() => editLink(each, index)}>
-        Edit
+        {t('Edit')}
       </button>
       <button type="button" onClick={() => removeLink(index)}>
-        Delete
+        {t('Delete')}
       </button>
       {index === 0 ? (
         ``
@@ -118,11 +120,11 @@ const Links = ({ list, hook }: IProps) => {
 
   return (
     <Styled>
-      <h3>Links</h3>
+      <h3>{t('Links')}</h3>
 
       <form>
         <label htmlFor="title">
-          Title
+          {t('Title')}
           <input
             type="text"
             name="title"
@@ -132,6 +134,7 @@ const Links = ({ list, hook }: IProps) => {
         </label>
 
         <label htmlFor="url">
+          {t('URL')}
           <input
             type="text"
             name="url"
@@ -141,7 +144,7 @@ const Links = ({ list, hook }: IProps) => {
         </label>
 
         <button type="button" onClick={editing ? editLinkList : changeLinkList}>
-          {editing ? 'Edit link' : 'Add new link'}
+          {editing ? t('Edit link') : t('Add new link')}
         </button>
 
         {error ? <p>{error}</p> : ''}

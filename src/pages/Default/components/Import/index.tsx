@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const ImportDiv = styled.div``;
 
@@ -8,6 +9,7 @@ interface IProps {
 }
 
 const Import = ({ setExported }: IProps) => {
+  const { t } = useTranslation();
   const [importType, setImportType] = useState('url');
 
   const handleImport = useCallback(() => {
@@ -16,15 +18,12 @@ const Import = ({ setExported }: IProps) => {
 
   return (
     <ImportDiv>
-      <h2>Import code or url</h2>
-      <p>
-        If you already created a list, you can import and edit it using the
-        fields below.
-      </p>
-      <p>Copy and paste the final url or the generated self-hosted code</p>
+      <h2>{t('Import title')}</h2>
+      <p>{t('Import explanation 1')}</p>
+      <p>{t('Import explanation 2')}</p>
       <form>
         <label htmlFor="import-url">
-          Import link
+          {t('Import link')}
           <input
             type="radio"
             name="import"
@@ -34,7 +33,7 @@ const Import = ({ setExported }: IProps) => {
           />
         </label>
         <label htmlFor="import-code">
-          Import code
+          {t('Import code')}
           <input
             type="radio"
             name="import"
@@ -52,7 +51,7 @@ const Import = ({ setExported }: IProps) => {
       )}
 
       <button type="submit" onClick={handleImport}>
-        Import
+        {t('Import')}
       </button>
     </ImportDiv>
   );

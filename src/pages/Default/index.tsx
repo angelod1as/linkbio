@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+// import { RouteComponentProps } from 'react-router-dom';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 import { Container } from './styles';
 
@@ -13,7 +15,23 @@ import Header from './components/Header';
 import Form from './components/Form';
 import Export from './components/Export';
 
-const Default = () => {
+interface IParams {
+  match: {
+    params: {
+      lang: string;
+    };
+  };
+}
+
+const Default = ({
+  match: {
+    params: { lang },
+  },
+}: IParams) => {
+  // Handling language
+  const { i18n } = useTranslation();
+  i18n.changeLanguage(lang);
+
   const [exported, setExported] = useState(false);
   const [socialList, setSocialList] = useState<ISocial>({
     instagram: '',
@@ -42,17 +60,11 @@ const Default = () => {
     },
   };
 
-  const HideTest = styled.div`
-    display: none;
-  `;
-
   return (
     <Container>
-      <HideTest>
-        <Header />
+      <Header />
 
-        <Import setExported={setExported} />
-      </HideTest>
+      <Import setExported={setExported} />
 
       <Form social={lists.social} header={lists.header} links={lists.links} />
 

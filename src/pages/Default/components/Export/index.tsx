@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import ILists from '../../../../dtos/ILists';
 import templates from './templates';
 
@@ -11,6 +12,7 @@ interface IProps extends ILists {
 }
 
 const Export = ({ exported, setExported, social, header, links }: IProps) => {
+  const { t } = useTranslation();
   const [exportType, setExportType] = useState('url');
   const [finalString, setFinalString] = useState('');
 
@@ -22,17 +24,12 @@ const Export = ({ exported, setExported, social, header, links }: IProps) => {
 
   return (
     <ExportDiv>
-      <h2>Export code or url</h2>
-      <p>
-        You can export a long URL or a ready-made HTML code for self-hosting.
-      </p>
-      <p>
-        The <em>best</em> choice is self-hosting. It's easy to set up, just
-        follow the tutorial.
-      </p>
+      <h2>{t('Export title')}</h2>
+      <p>{t('Export explanation 1')}</p>
+      <p>{t('Export explanation 2')}</p>
       <form>
         <label htmlFor="export-url">
-          Export long URL
+          {t('Export long URL')}
           <input
             type="radio"
             name="export"
@@ -42,7 +39,7 @@ const Export = ({ exported, setExported, social, header, links }: IProps) => {
           />
         </label>
         <label htmlFor="export-code">
-          Export code for self-hosting
+          {t('Export code for self-hosting')}
           <input
             type="radio"
             name="export"
@@ -54,7 +51,7 @@ const Export = ({ exported, setExported, social, header, links }: IProps) => {
       </form>
 
       <button type="submit" onClick={exportList}>
-        Export
+        {t('Export')}
       </button>
 
       {exported ? 'exportado!' : 'esperando export'}
