@@ -34,7 +34,6 @@ const Default = ({
   const history = useHistory();
   const { i18n } = useTranslation();
 
-  const [exported, setExported] = useState(false);
   const [isDisplay, setIsDisplay] = useState(true);
   const [socialList, setSocialList] = useState<ISocial>({
     instagram: 'http://www.instagram.com/cronofobico',

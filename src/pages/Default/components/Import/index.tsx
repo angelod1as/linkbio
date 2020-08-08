@@ -26,7 +26,7 @@ const Import = () => {
     } else {
       setError(t('Import error'));
     }
-  }, [importContent, history]);
+  }, [importContent, history, t]);
 
   return (
     <ImportDiv>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import ILists from '../../../../dtos/ILists';
 import templates from './templates';
+import api from '../../../../services/api';
 
 const Styled = styled.div`
   margin: 40px 0;
@@ -12,6 +13,32 @@ const Export = ({ social, header, links }: ILists) => {
   const { t } = useTranslation();
   const [exportType, setExportType] = useState('url');
   const [finalString, setFinalString] = useState('');
+  const [shortened, setShortened] = useState('');
+  const [error, setError] = useState('');
+
+  const shorten = useCallback(() => {
+    api
+      .post(
+        'https://api-ssl.bitly.com/v4/shorten',
+        {
+          group_guid: 'Bk42nAyCf1T',
+          domain: 'bit.ly',
+          long_url: finalString,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_BITLY_TOKEN}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      .then((response) => {
+        setShortened(response.data.link);
+      })
+      .catch(() => {
+        setError(t('There was some error. Let the developer know'));
+      });
+  }, [finalString, t]);
 
   const exportList = useCallback(
     (type) => {
@@ -22,8 +49,9 @@ const Export = ({ social, header, links }: ILists) => {
   );
 
   useEffect(() => {
-    exportList('url');
-  }, [exportList]);
+    const string = templates('url', { social, header, links });
+    setFinalString(string);
+  }, [exportList, social, header, links]);
 
   const handleChange = useCallback(
     (type) => {
@@ -76,6 +104,24 @@ const Export = ({ social, header, links }: ILists) => {
         readOnly
         value={finalString}
       />
+
+      <button type="button" onClick={shorten}>
+        {t('Get short link (by bitly')}
+      </button>
+
+      {error ? <small>{error}</small> : ''}
+
+      {shortened ? (
+        <input
+          type="text"
+          name="shortened"
+          id="shortened"
+          defaultValue={shortened}
+          readOnly
+        />
+      ) : (
+        ''
+      )}
     </Styled>
   );
 };
