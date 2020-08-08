@@ -6,9 +6,8 @@ import GlobalStyle from './styles/global';
 import Routes from './routes';
 
 const App = () => (
-  <Router>
+  <Router basename="/linkbio/">
     <Routes />
-
     <GlobalStyle />
   </Router>
 );

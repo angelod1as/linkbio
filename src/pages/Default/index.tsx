@@ -81,6 +81,17 @@ const Default = ({
   };
 
   useEffect(() => {
+    // set language
+    // This is a gambiarra explained in export/templates file.
+    if (
+      lang !== 'en' &&
+      lang !== 'ptbr' &&
+      lang !== 'list' &&
+      lang !== 'edit'
+    ) {
+      history.push('/en');
+    }
+
     i18n.changeLanguage(lang);
 
     if (lang === 'list') {

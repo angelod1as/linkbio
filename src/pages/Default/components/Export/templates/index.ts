@@ -2,8 +2,12 @@ import ILists from '../../../../../dtos/ILists';
 
 const templates = (type: string, { social, header, links }: ILists) => {
   if (type === 'url') {
-    const split = window.location.href.split('/');
-    const url = `${split[0]}//${split[2]}/list`;
+    // I'd love to find a better way to get the current URL and return it.
+    // But I just... can't.
+    // This way isn't the best because I have to hardcode the available languages.
+    // This is suboptimal.
+    const split = window.location.href.split(/en|ptbr/g)[0];
+    const url = `${split}list`;
     const json = {
       social,
       header,
