@@ -4,8 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 import { Container, EditPanel, PreviewPanel } from './styles';
 
-import Preview from './components/Preview';
-
 import IHeader from '../../dtos/IHeader';
 import ISocial from '../../dtos/ISocial';
 import ILinks from '../../dtos/ILinks';
@@ -13,6 +11,8 @@ import ILists from '../../dtos/ILists';
 
 import importString from './components/Import/importString';
 
+import Preview from './components/Preview';
+import Footer from './components/Footer';
 import Import from './components/Import';
 import Header from './components/Header';
 import Form from './components/Form';
@@ -117,43 +117,46 @@ const Default = ({
   }, [i18n, lang, setIsDisplay, history]);
 
   return (
-    <Container
-      style={{
-        // For some reason Styled Components isn't working with this
-        display: isDisplay ? 'block' : 'grid',
-        gridTemplateColumns: '1fr 1fr',
-      }}
-    >
-      {isDisplay ? (
-        ''
-      ) : (
-        <EditPanel>
-          <div>
-            <Header lang={lang} />
+    <Container>
+      <div
+        style={{
+          // For some reason Styled Components isn't working with this
+          display: isDisplay ? 'block' : 'grid',
+          gridTemplateColumns: '1fr 1fr',
+        }}
+      >
+        {isDisplay ? (
+          ''
+        ) : (
+          <EditPanel>
+            <div>
+              <Header lang={lang} />
 
-            <Import />
+              <Import />
 
-            <Form
-              social={lists.social}
-              header={lists.header}
-              links={lists.links}
-            />
+              <Form
+                social={lists.social}
+                header={lists.header}
+                links={lists.links}
+              />
 
-            <Export
-              social={lists.social}
-              header={lists.header}
-              links={lists.links}
-            />
-          </div>
-        </EditPanel>
-      )}
-      <PreviewPanel isDisplay>
-        <Preview
-          social={lists.social}
-          header={lists.header}
-          links={lists.links}
-        />
-      </PreviewPanel>
+              <Export
+                social={lists.social}
+                header={lists.header}
+                links={lists.links}
+              />
+            </div>
+          </EditPanel>
+        )}
+        <PreviewPanel isDisplay>
+          <Preview
+            social={lists.social}
+            header={lists.header}
+            links={lists.links}
+          />
+        </PreviewPanel>
+      </div>
+      <Footer />
     </Container>
   );
 };

@@ -8,7 +8,7 @@ const ImportDiv = styled.div`
 `;
 
 const Form = styled.form`
-  margin: 40px 0;
+  margin: 10px 0 40px;
 `;
 
 const Import = () => {
@@ -36,13 +36,13 @@ const Import = () => {
       <Form>
         <label
           className={`button-label ${importType === 'url' ? 'checked' : ''}`}
-          htmlFor="import-url"
+          htmlFor="import-URL"
         >
           {t('Import link')}
           <input
             type="radio"
             name="import"
-            id="import-url"
+            id="import-URL"
             checked={importType === 'url'}
             onChange={() => {
               setImportType('url');
@@ -71,7 +71,7 @@ const Import = () => {
           {importType === 'url' ? (
             <input
               type="text"
-              name="url"
+              name="URL"
               id="url-text"
               onChange={(e) => setImportContent(e.target.value)}
               value={importContent}

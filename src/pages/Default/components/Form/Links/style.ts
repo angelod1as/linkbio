@@ -51,3 +51,7 @@ export const LinkHolder = styled.div`
     }
   }
 `;
+
+export const Small = styled.small`
+  grid-column: span 2;
+`;

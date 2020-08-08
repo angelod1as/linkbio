@@ -1,12 +1,35 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import ILists from '../../../../dtos/ILists';
 import templates from './templates';
 import api from '../../../../services/api';
 
 const Styled = styled.div`
   margin: 40px 0;
+`;
+
+const LinkOrCode = styled.div`
+  h3 {
+    margin: 20px 0;
+  }
+
+  & > div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0 20px;
+  }
+
+  h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: square;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
 `;
 
 const Export = ({ social, header, links }: ILists) => {
@@ -36,7 +59,7 @@ const Export = ({ social, header, links }: ILists) => {
         setShortened(response.data.link);
       })
       .catch(() => {
-        setError(t('There was some error. Let the developer know'));
+        setError(t('Export error'));
       });
   }, [finalString, t]);
 
@@ -65,18 +88,16 @@ const Export = ({ social, header, links }: ILists) => {
   return (
     <Styled>
       <h2>{t('Export title')}</h2>
-      <p>{t('Export explanation 1')}</p>
-      <p>{t('Export explanation 2')}</p>
       <form>
         <label
           className={`button-label ${exportType === 'url' ? 'checked' : ''}`}
-          htmlFor="export-url"
+          htmlFor="export-URL"
         >
           {t('Export long URL')}
           <input
             type="radio"
             name="export"
-            id="export-url"
+            id="export-URL"
             checked={exportType === 'url'}
             onChange={() => handleChange('url')}
           />
@@ -105,9 +126,13 @@ const Export = ({ social, header, links }: ILists) => {
         value={finalString}
       />
 
-      <button type="button" onClick={shorten}>
-        {t('Get short link (by bitly')}
-      </button>
+      {exportType === 'url' ? (
+        <button type="button" onClick={shorten}>
+          {t('Get short')}
+        </button>
+      ) : (
+        ''
+      )}
 
       {error ? <small>{error}</small> : ''}
 
@@ -122,6 +147,42 @@ const Export = ({ social, header, links }: ILists) => {
       ) : (
         ''
       )}
+
+      <LinkOrCode>
+        <h3>{t('Link or code')}</h3>
+        <div>
+          <div>
+            <Trans i18nKey="Link explanation">
+              <h4>Link:</h4>
+              <ul>
+                <li>
+                  <b>Pros:</b>easy as click-copy-paste. Get the provided URL —
+                  or it's shortened version — and paste it wherever you like.
+                </li>
+                <li>
+                  <b>Cons:</b> Every time you change your list, you will need to
+                  change the links everywhere.
+                </li>
+              </ul>
+            </Trans>
+          </div>
+          <div>
+            <Trans i18nKey="Code explanation">
+              <h4>Link:</h4>
+              <ul>
+                <li>
+                  <b>Pros:</b>easy as click-copy-paste. Get the provided URL —
+                  or it's shortened version — and paste it wherever you like.
+                </li>
+                <li>
+                  <b>Cons:</b> Every time you change your list, you will need to
+                  change the links everywhere.
+                </li>
+              </ul>
+            </Trans>
+          </div>
+        </div>
+      </LinkOrCode>
     </Styled>
   );
 };

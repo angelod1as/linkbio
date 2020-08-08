@@ -56,13 +56,13 @@ const Header = ({ list, hook }: IProps) => {
         <label htmlFor="image">
           {t('Photo')}
           <small>
-            <Trans i18nKey="photo imgur">
+            <Trans i18nKey="photo explanation">
               You can use
               <A href="http://www.imgur.com">imgur</A>
             </Trans>
           </small>
           <input
-            type="url"
+            type="URL"
             name="image"
             id="image"
             onChange={(e) => handleChange(e)}

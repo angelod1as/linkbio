@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { useTranslation } from 'react-i18next';
 import ILinks from '../../../../../dtos/ILinks';
 
-import { Form, LinkHolder, LinksContainer, Styled } from './style';
+import { Form, LinkHolder, LinksContainer, Styled, Small } from './style';
 
 interface IProps {
   list: ILinks[];
@@ -132,11 +132,11 @@ const Links = ({ list, hook }: IProps) => {
           />
         </label>
 
-        <label htmlFor="url">
+        <label htmlFor="URL">
           {t('URL')}
           <input
             type="text"
-            name="url"
+            name="URL"
             value={currentUrl}
             onChange={(e) => setCurrentUrl(e.target.value)}
           />
@@ -146,7 +146,7 @@ const Links = ({ list, hook }: IProps) => {
           {editing ? t('Edit link') : t('Add new link')}
         </button>
 
-        {error ? <p>{error}</p> : ''}
+        {error ? <Small>{error}</Small> : ''}
       </Form>
 
       <LinksContainer>{linkList}</LinksContainer>

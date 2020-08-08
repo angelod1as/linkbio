@@ -125,6 +125,11 @@ export const EditPanel = styled(noScroll)`
     display: block;
     margin: 5px 0;
   }
+
+  p,
+  li {
+    margin: 10px 0;
+  }
 `;
 
 export const PreviewPanel = styled(noScroll)<{ isDisplay: boolean }>`

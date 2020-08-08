@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 import Language from './Language';
 
@@ -24,7 +24,11 @@ const Header = ({ lang }: { lang: string }) => {
       </Title>
       <Explanation>
         <h2>{t('How to use')}</h2>
-        <p>{t('How to use explanation')}</p>
+        <Trans i18nKey="How to use explanation">
+          <p>
+            <b>Text:</b>text
+          </p>
+        </Trans>
       </Explanation>
     </Styled>
   );
