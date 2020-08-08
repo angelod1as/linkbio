@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Container } from './styles';
+import { Container, EditPanel, PreviewPanel } from './styles';
 
 import IHeader from '../../dtos/IHeader';
 import ISocial from '../../dtos/ISocial';
@@ -42,8 +42,23 @@ const Default = ({
   const [headerList, setHeaderList] = useState<IHeader>({
     name: '',
     image: '',
+    color: '',
   });
-  const [linkList, setLinkList] = useState<ILinks[]>([]);
+  const [linkList, setLinkList] = useState<ILinks[]>([
+    {
+      title:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia obcaecati veritatis repudiandae ad delectus a eius error, id repellendus odio nulla sequi nihil. Explicabo enim modi dolorum mollitia cupiditate error.',
+      url: 'URL1',
+    },
+    {
+      title: 'Title2',
+      url: 'URL2',
+    },
+    {
+      title: 'Title3',
+      url: 'URL3',
+    },
+  ]);
 
   const lists: ILists = {
     social: {
@@ -62,20 +77,23 @@ const Default = ({
 
   return (
     <Container>
-      <Header lang={lang} />
+      <EditPanel>
+        <Header lang={lang} />
 
-      <Import setExported={setExported} />
+        <Import setExported={setExported} />
 
-      <Form social={lists.social} header={lists.header} links={lists.links} />
+        <Form social={lists.social} header={lists.header} links={lists.links} />
 
-      {/* Sidebar showing how it's going to look */}
-      <Export
-        exported={exported}
-        setExported={setExported}
-        social={lists.social}
-        header={lists.header}
-        links={lists.links}
-      />
+        {/* Sidebar showing how it's going to look */}
+        <Export
+          exported={exported}
+          setExported={setExported}
+          social={lists.social}
+          header={lists.header}
+          links={lists.links}
+        />
+      </EditPanel>
+      <PreviewPanel />
     </Container>
   );
 };

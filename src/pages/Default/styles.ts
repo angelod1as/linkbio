@@ -1,9 +1,32 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
-export const Title = styled.h1``;
-export const SubTitle = styled.h1``;
-export const Explanation = styled.div``;
-export const Import = styled.div``;
-export const Form = styled.div``;
-export const Export = styled.div``;
+const noScroll = styled.div`
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+`;
+
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
+export const EditPanel = styled(noScroll)`
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  padding: 50px 20px;
+`;
+
+export const PreviewPanel = styled(noScroll)`
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: #1f3b73;
+  border-left: 5px solid #f2cb05;
+  padding: 50px 20px;
+`;

@@ -3,7 +3,15 @@ import styled from 'styled-components';
 import { Trans, useTranslation } from 'react-i18next';
 import IHeader from '../../../../../dtos/IHeader';
 
-const Styled = styled.div``;
+const Styled = styled.div`
+  margin: 20px 0;
+`;
+
+const Form = styled.form`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+`;
 
 interface IProps {
   list: IHeader;
@@ -29,37 +37,42 @@ const Header = ({ list, hook }: IProps) => {
 
   return (
     <Styled>
-      <h2>{t('Form header title')}</h2>
-
       <h3>{t('Header')}</h3>
-      <label htmlFor="name">
-        {t('Page name')}
-        <input
-          type="text"
-          name="name"
-          id="name"
-          onChange={(e) => handleChange(e)}
-        />
-      </label>
 
-      <label htmlFor="image">
-        {t('Photo')}
-        <small>
-          <Trans i18nKey="photo imgur">
-            You can upload a picture using
-            <a href="http://www.imgur.com" target="_blank" rel="noreferrer">
-              imgur
-            </a>
-            . Post the final url here
-          </Trans>
-        </small>
-        <input
-          type="url"
-          name="image"
-          id="image"
-          onChange={(e) => handleChange(e)}
-        />
-      </label>
+      <Form>
+        <label htmlFor="name">
+          {t('Page name')}
+          <small>{t('Page name explanation')}</small>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={(e) => handleChange(e)}
+          />
+        </label>
+
+        <label htmlFor="image">
+          {t('Photo')}
+          <small>
+            <Trans i18nKey="photo imgur">
+              You can use
+              <a
+                href="http://www.imgur.com"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                imgur
+              </a>
+            </Trans>
+          </small>
+          <input
+            type="url"
+            name="image"
+            id="image"
+            onChange={(e) => handleChange(e)}
+          />
+        </label>
+      </Form>
     </Styled>
   );
 };

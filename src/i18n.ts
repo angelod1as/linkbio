@@ -21,11 +21,10 @@ const resources = {
       Header: 'Header',
       'Page name': 'Page name',
       Photo: 'Photo',
-      'photo imgur':
-        'You can upload a picture using <1>imgur</1>. Post the final url here',
+      'photo imgur': 'You can use <1>imgur</1>',
       Social: 'Social',
       'Instagram url': 'Instagram url',
-      example: 'example:',
+      example: 'example',
       'Twitter url': 'Twitter url',
       'Facebook url': 'Facebook url',
       'LinkedIn url': 'LinkedIn url',
@@ -46,6 +45,7 @@ const resources = {
       'Export long URL': 'Export long URL',
       'Export code for self-hosting': 'Export code for self-hosting',
       Export: 'Export',
+      'Full urls': "Please insert full URLs, with 'http' and all",
     },
   },
   ptbr: {
@@ -53,8 +53,7 @@ const resources = {
       'Create your link list': 'Crie sua lista de links',
       'How to use': 'Como usar',
       'How to use explanation': 'Explicação de como usar',
-      'photo imgur':
-        'Você pode fazer upload de uma foto no <1>imgur</1>. Cole a URL final aqui',
+      'photo imgur': 'Você pode usar o <1>imgur</1>',
     },
   },
 };

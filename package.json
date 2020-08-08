@@ -12,6 +12,7 @@
     "i18next": "^19.6.3",
     "i18next-browser-languagedetector": "^5.0.1",
     "i18next-http-backend": "^1.0.17",
+    "polished": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-i18next": "^11.7.0",

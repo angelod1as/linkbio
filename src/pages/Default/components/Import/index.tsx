@@ -2,7 +2,13 @@ import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
-const ImportDiv = styled.div``;
+const ImportDiv = styled.div`
+  margin: 40px 0;
+`;
+
+const Form = styled.form`
+  margin: 40px 0;
+`;
 
 interface IProps {
   setExported: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,8 +27,11 @@ const Import = ({ setExported }: IProps) => {
       <h2>{t('Import title')}</h2>
       <p>{t('Import explanation 1')}</p>
       <p>{t('Import explanation 2')}</p>
-      <form>
-        <label htmlFor="import-url">
+      <Form>
+        <label
+          className={`button-label ${importType === 'url' ? 'checked' : ''}`}
+          htmlFor="import-url"
+        >
           {t('Import link')}
           <input
             type="radio"
@@ -32,7 +41,10 @@ const Import = ({ setExported }: IProps) => {
             onChange={() => setImportType('url')}
           />
         </label>
-        <label htmlFor="import-code">
+        <label
+          className={`button-label ${importType === 'code' ? 'checked' : ''}`}
+          htmlFor="import-code"
+        >
           {t('Import code')}
           <input
             type="radio"
@@ -42,17 +54,19 @@ const Import = ({ setExported }: IProps) => {
             onChange={() => setImportType('code')}
           />
         </label>
-      </form>
 
-      {importType === 'url' ? (
-        <input type="text" name="url" id="url-text" />
-      ) : (
-        <textarea name="import" id="import" cols={30} rows={10} />
-      )}
+        <div>
+          {importType === 'url' ? (
+            <input type="text" name="url" id="url-text" />
+          ) : (
+            <textarea name="import" id="import" cols={30} rows={10} />
+          )}
 
-      <button type="submit" onClick={handleImport}>
-        {t('Import')}
-      </button>
+          <button type="button" onClick={handleImport}>
+            {t('Import')}
+          </button>
+        </div>
+      </Form>
     </ImportDiv>
   );
 };
