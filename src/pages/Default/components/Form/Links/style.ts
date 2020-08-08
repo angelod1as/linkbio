@@ -42,6 +42,7 @@ export const LinkHolder = styled.div`
     background-color: ${pink};
     margin: 0 5px;
     flex: 0;
+    padding: 2px 5px;
     &:hover {
       box-shadow: 5px 5px 5px 0px ${pink};
     }

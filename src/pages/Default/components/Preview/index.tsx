@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuid } from 'uuid';
 import ILists from '../../../../dtos/ILists';
 
 import { Container, Header, Social, Links, LinkHolder } from './styles';
@@ -49,7 +50,9 @@ const Preview = ({ social, header, links }: ILists) => {
         {links.list.length > 0 ? (
           <LinkHolder>
             {links.list.map((each) => (
-              <A href={each.url}>{each.title}</A>
+              <A href={each.url} key={uuid()}>
+                {each.title}
+              </A>
             ))}
           </LinkHolder>
         ) : (

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
 
 import { Container, EditPanel, PreviewPanel } from './styles';
 
@@ -9,6 +10,8 @@ import IHeader from '../../dtos/IHeader';
 import ISocial from '../../dtos/ISocial';
 import ILinks from '../../dtos/ILinks';
 import ILists from '../../dtos/ILists';
+
+import importString from './components/Import/importString';
 
 import Import from './components/Import';
 import Header from './components/Header';
@@ -28,13 +31,11 @@ const Default = ({
     params: { lang },
   },
 }: IParams) => {
+  const history = useHistory();
   const { i18n } = useTranslation();
 
-  useEffect(() => {
-    i18n.changeLanguage(lang);
-  }, [i18n, lang]);
-
   const [exported, setExported] = useState(false);
+  const [isDisplay, setIsDisplay] = useState(true);
   const [socialList, setSocialList] = useState<ISocial>({
     instagram: 'http://www.instagram.com/cronofobico',
     facebook: '',
@@ -80,31 +81,63 @@ const Default = ({
     },
   };
 
+  useEffect(() => {
+    i18n.changeLanguage(lang);
+
+    if (lang === 'list') {
+      setIsDisplay(true);
+      const { search } = history.location;
+      const information = search.split('?information=')[1];
+      const { social, header, links } = importString(information);
+      setSocialList(social.list);
+      setHeaderList(header.list);
+      setLinkList(links.list);
+    } else if (lang === 'edit') {
+      setIsDisplay(false);
+      const { search } = history.location;
+      const information = search.split('?information=')[1];
+      const { social, header, links } = importString(information);
+      history.push('/en');
+      setSocialList(social.list);
+      setHeaderList(header.list);
+      setLinkList(links.list);
+    } else {
+      setIsDisplay(false);
+    }
+  }, [i18n, lang, setIsDisplay, history]);
+
   return (
-    <Container>
-      <EditPanel>
-        <div>
-          <Header lang={lang} />
+    <Container
+      style={{
+        // For some reason Styled Components isn't working with this
+        display: isDisplay ? 'block' : 'grid',
+        gridTemplateColumns: '1fr 1fr',
+      }}
+    >
+      {isDisplay ? (
+        ''
+      ) : (
+        <EditPanel>
+          <div>
+            <Header lang={lang} />
 
-          <Import setExported={setExported} />
+            <Import />
 
-          <Form
-            social={lists.social}
-            header={lists.header}
-            links={lists.links}
-          />
+            <Form
+              social={lists.social}
+              header={lists.header}
+              links={lists.links}
+            />
 
-          {/* Sidebar showing how it's going to look */}
-          <Export
-            exported={exported}
-            setExported={setExported}
-            social={lists.social}
-            header={lists.header}
-            links={lists.links}
-          />
-        </div>
-      </EditPanel>
-      <PreviewPanel>
+            <Export
+              social={lists.social}
+              header={lists.header}
+              links={lists.links}
+            />
+          </div>
+        </EditPanel>
+      )}
+      <PreviewPanel isDisplay>
         <Preview
           social={lists.social}
           header={lists.header}

@@ -46,6 +46,8 @@ const resources = {
       'Export code for self-hosting': 'Export code for self-hosting',
       Export: 'Export',
       'Full urls': "Please insert full URLs, with 'http' and all",
+      'Import error':
+        "Your URL is wrong. Copy again and check if there's a 'list?' in it",
     },
   },
   ptbr: {

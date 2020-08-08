@@ -45,10 +45,7 @@ const noScroll = styled.div`
   scrollbar-width: none;
 `;
 
-export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
+export const Container = styled.div``;
 
 export const EditPanel = styled(noScroll)`
   overflow-y: scroll;
@@ -130,12 +127,12 @@ export const EditPanel = styled(noScroll)`
   }
 `;
 
-export const PreviewPanel = styled(noScroll)`
+export const PreviewPanel = styled(noScroll)<{ isDisplay: boolean }>`
   overflow-y: scroll;
   height: 100vh;
   padding: 0;
   margin: 0;
   background-color: ${blue};
-  border-left: 5px solid ${gold};
+  border-left: ${(props) => (props.isDisplay ? 'none' : `5px solid ${gold}`)};
   padding: 50px 20px;
 `;
