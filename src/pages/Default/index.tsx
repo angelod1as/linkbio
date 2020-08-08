@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Container, EditPanel, PreviewPanel } from './styles';
 
+import Preview from './components/Preview';
+
 import IHeader from '../../dtos/IHeader';
 import ISocial from '../../dtos/ISocial';
 import ILinks from '../../dtos/ILinks';
@@ -34,29 +36,32 @@ const Default = ({
 
   const [exported, setExported] = useState(false);
   const [socialList, setSocialList] = useState<ISocial>({
-    instagram: '',
+    instagram: 'http://www.instagram.com/cronofobico',
     facebook: '',
-    linkedin: '',
-    twitter: '',
+    linkedin: 'http://www.linkedin.com/in/angelod1as',
+    twitter: 'http://www.twitter.com/oicronofobico',
   });
   const [headerList, setHeaderList] = useState<IHeader>({
-    name: '',
-    image: '',
+    name: "Cronofobico's Links",
+    image: 'https://i.imgur.com/Ph3aPbR.jpg',
     color: '',
   });
   const [linkList, setLinkList] = useState<ILinks[]>([
     {
-      title:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia obcaecati veritatis repudiandae ad delectus a eius error, id repellendus odio nulla sequi nihil. Explicabo enim modi dolorum mollitia cupiditate error.',
-      url: 'URL1',
+      title: 'My portfolio',
+      url: 'http://www.angelodias.com.br',
     },
     {
-      title: 'Title2',
-      url: 'URL2',
+      title: 'Sci Fi Newspaper!',
+      url: 'http://www.temposfantasticos.com',
     },
     {
-      title: 'Title3',
-      url: 'URL3',
+      title: "This project's repository",
+      url: 'https://github.com/angelod1as/linkbio',
+    },
+    {
+      title: 'My GitHub',
+      url: 'https://github.com/angelod1as/',
     },
   ]);
 
@@ -78,22 +83,34 @@ const Default = ({
   return (
     <Container>
       <EditPanel>
-        <Header lang={lang} />
+        <div>
+          <Header lang={lang} />
 
-        <Import setExported={setExported} />
+          <Import setExported={setExported} />
 
-        <Form social={lists.social} header={lists.header} links={lists.links} />
+          <Form
+            social={lists.social}
+            header={lists.header}
+            links={lists.links}
+          />
 
-        {/* Sidebar showing how it's going to look */}
-        <Export
-          exported={exported}
-          setExported={setExported}
+          {/* Sidebar showing how it's going to look */}
+          <Export
+            exported={exported}
+            setExported={setExported}
+            social={lists.social}
+            header={lists.header}
+            links={lists.links}
+          />
+        </div>
+      </EditPanel>
+      <PreviewPanel>
+        <Preview
           social={lists.social}
           header={lists.header}
           links={lists.links}
         />
-      </EditPanel>
-      <PreviewPanel />
+      </PreviewPanel>
     </Container>
   );
 };

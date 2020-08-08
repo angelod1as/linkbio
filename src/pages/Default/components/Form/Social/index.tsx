@@ -47,6 +47,7 @@ const Social = ({ list, hook }: IProps) => {
             name="instagram"
             id="instagram"
             onChange={(e) => handleChange(e)}
+            value={list.instagram}
           />
         </label>
 
@@ -57,6 +58,7 @@ const Social = ({ list, hook }: IProps) => {
             name="twitter"
             id="twitter"
             onChange={(e) => handleChange(e)}
+            value={list.twitter}
           />
         </label>
 
@@ -67,6 +69,7 @@ const Social = ({ list, hook }: IProps) => {
             name="facebook"
             id="facebook"
             onChange={(e) => handleChange(e)}
+            value={list.facebook}
           />
         </label>
 
@@ -77,6 +80,7 @@ const Social = ({ list, hook }: IProps) => {
             name="linkedin"
             id="linkedin"
             onChange={(e) => handleChange(e)}
+            value={list.linkedin}
           />
         </label>
       </Form>

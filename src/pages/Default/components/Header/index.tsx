@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Language from './Language';
 
 const Styled = styled.div`
-  margin: 40px 0;
+  margin: 0 0 40px 0;
 `;
 
 const Title = styled.div`

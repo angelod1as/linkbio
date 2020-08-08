@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { Trans, useTranslation } from 'react-i18next';
 import IHeader from '../../../../../dtos/IHeader';
+import A from '../../../../../components/A';
 
 const Styled = styled.div`
   margin: 20px 0;
@@ -48,6 +49,7 @@ const Header = ({ list, hook }: IProps) => {
             name="name"
             id="name"
             onChange={(e) => handleChange(e)}
+            value={list.name}
           />
         </label>
 
@@ -56,13 +58,7 @@ const Header = ({ list, hook }: IProps) => {
           <small>
             <Trans i18nKey="photo imgur">
               You can use
-              <a
-                href="http://www.imgur.com"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                imgur
-              </a>
+              <A href="http://www.imgur.com">imgur</A>
             </Trans>
           </small>
           <input
@@ -70,6 +66,7 @@ const Header = ({ list, hook }: IProps) => {
             name="image"
             id="image"
             onChange={(e) => handleChange(e)}
+            value={list.image}
           />
         </label>
       </Form>

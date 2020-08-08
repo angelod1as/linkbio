@@ -1,59 +1,9 @@
 import React, { useState, useCallback } from 'react';
-import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { useTranslation } from 'react-i18next';
 import ILinks from '../../../../../dtos/ILinks';
 
-import { gold, blue, pink } from '../../../../../styles/global';
-
-const Styled = styled.div`
-  margin: 20px 0;
-`;
-
-const Form = styled.form`
-  display: grid;
-  grid-gap: 0 20px;
-  grid-template-columns: repeat(2, 1fr);
-  button {
-    grid-column: span 2;
-  }
-`;
-
-const LinksContainer = styled.div``;
-
-const LinkHolder = styled.div`
-  width: 100%;
-  display: flex;
-  padding: 10px;
-  background-color: ${gold};
-  margin: 10px 0;
-  border: 3px solid ${blue};
-  transition: box-shadow 0.3s;
-  &:hover {
-    box-shadow: 0px 0px 10px 0px ${blue};
-  }
-  a {
-    margin-left: 10px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    &:hover {
-      box-shadow: none;
-      background-color: none;
-    }
-  }
-
-  button {
-    transition: 0.2s;
-    border: 3px solid ${blue};
-    color: ${blue};
-    background-color: ${pink};
-    margin: 0 5px;
-    &:hover {
-      box-shadow: 5px 5px 5px 0px ${pink};
-    }
-  }
-`;
+import { Form, LinkHolder, LinksContainer, Styled } from './style';
 
 interface IProps {
   list: ILinks[];
@@ -143,7 +93,7 @@ const Links = ({ list, hook }: IProps) => {
 
   const linkList = links.map((each, index) => (
     <LinkHolder key={uuid()}>
-      <a href={each.url}>{each.title}</a>
+      <p>{each.title}</p>
       {index === 0 ? (
         ``
       ) : (
