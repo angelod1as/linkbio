@@ -42,8 +42,11 @@ const Export = ({ social, header, links }: ILists) => {
   const shorten = useCallback(() => {
     setShortened('');
     const encoded = encodeURIComponent(finalString);
+    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
     api
-      .get(`https://tinyurl.com/create.php?source=create&url=${encoded}`)
+      .get(
+        `${corsProxy}https://tinyurl.com/create.php?source=create&url=${encoded}`,
+      )
       .then(({ data }) => {
         const url = data
           .split('data-clipboard-text="')[1]
