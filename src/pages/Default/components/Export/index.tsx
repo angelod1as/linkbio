@@ -40,27 +40,17 @@ const Export = ({ social, header, links }: ILists) => {
   const [error, setError] = useState('');
 
   const shorten = useCallback(() => {
+    setShortened('');
+    const encoded = encodeURIComponent(finalString);
     api
-      .post(
-        'https://api-ssl.bitly.com/v4/shorten',
-        {
-          group_guid: 'Bk42nAyCf1T',
-          domain: 'bit.ly',
-          long_url: finalString,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_BITLY_TOKEN}`,
-            'Content-Type': 'application/json',
-          },
-        },
-      )
-      .then((response) => {
-        setShortened(response.data.link);
+      .get(`https://tinyurl.com/create.php?source=create&url=${encoded}`)
+      .then(({ data }) => {
+        const url = data
+          .split('data-clipboard-text="')[1]
+          .split('"><small>')[0];
+        setShortened(url);
       })
-      .catch(() => {
-        setError(t('Export error'));
-      });
+      .catch((err) => setError(`${t(`Export error`)}: ${err}`));
   }, [finalString, t]);
 
   const exportList = useCallback(
