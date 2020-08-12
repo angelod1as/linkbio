@@ -19,14 +19,14 @@ const Preview = ({ social, header, links }: ILists) => {
       <Social>
         {social.list.instagram ? (
           <A href={social.list.instagram}>
-            <Facebook />
+            <Instagram />
           </A>
         ) : (
           ''
         )}
         {social.list.facebook ? (
           <A href={social.list.facebook}>
-            <Instagram />
+            <Facebook />
           </A>
         ) : (
           ''

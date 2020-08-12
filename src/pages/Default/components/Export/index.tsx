@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTranslation, Trans } from 'react-i18next';
 import ILists from '../../../../dtos/ILists';
-import templates from './templates';
+import templates from './components';
 import api from '../../../../services/api';
 
 const Styled = styled.div`
