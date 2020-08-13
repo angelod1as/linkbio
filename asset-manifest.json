@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/linkbio/static/js/main.f12d620a.chunk.js",
-    "main.js.map": "/linkbio/static/js/main.f12d620a.chunk.js.map",
+    "main.js": "/linkbio/static/js/main.9d2bc2a4.chunk.js",
+    "main.js.map": "/linkbio/static/js/main.9d2bc2a4.chunk.js.map",
     "runtime-main.js": "/linkbio/static/js/runtime-main.7b92597d.js",
     "runtime-main.js.map": "/linkbio/static/js/runtime-main.7b92597d.js.map",
     "static/js/2.a7eedb66.chunk.js": "/linkbio/static/js/2.a7eedb66.chunk.js",
     "static/js/2.a7eedb66.chunk.js.map": "/linkbio/static/js/2.a7eedb66.chunk.js.map",
     "index.html": "/linkbio/index.html",
-    "precache-manifest.b798f37c16eb704d5c6a788f2b84e9e0.js": "/linkbio/precache-manifest.b798f37c16eb704d5c6a788f2b84e9e0.js",
+    "precache-manifest.9e39ab2d07bc16e6534b7b960690e71b.js": "/linkbio/precache-manifest.9e39ab2d07bc16e6534b7b960690e71b.js",
     "service-worker.js": "/linkbio/service-worker.js",
     "static/js/2.a7eedb66.chunk.js.LICENSE.txt": "/linkbio/static/js/2.a7eedb66.chunk.js.LICENSE.txt",
     "static/media/1.jpg": "/linkbio/static/media/1.0a597449.jpg",
@@ -25,6 +25,6 @@
   "entrypoints": [
     "static/js/runtime-main.7b92597d.js",
     "static/js/2.a7eedb66.chunk.js",
-    "static/js/main.f12d620a.chunk.js"
+    "static/js/main.9d2bc2a4.chunk.js"
   ]
 }
