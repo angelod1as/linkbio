@@ -21,12 +21,12 @@ const head = (header: ILists['header']['list']) => {
   <meta name="twitter:title" content="${header.name} - Linkbio">
   <meta name="twitter:description" content="${header.name} list of links">
   <!-- Twitter Summary card images must be at least 120x120px -->
-  <meta name="twitter:image" content="http://euro-travel-example.com/social.jpg">
+  <meta name="twitter:image" content="https://angelod1as.github.io/linkbio/social.jpg">
 
   <!-- Open Graph data -->
   <meta property="og:title" content="${header.name} - Linkbio" />
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://euro-travel-example.com/social.jpg" />
+  <meta property="og:image" content="https://angelod1as.github.io/linkbio/social.jpg" />
   <meta property="og:description" content="${header.name} list of links" />
   <meta property="og:site_name" content="${header.name} - Linkbio" />
 
