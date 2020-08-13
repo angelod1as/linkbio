@@ -4,7 +4,7 @@
 
 > Uma alternativa grátis aos sites de listas de links
 
-![Website printscreen](./src/assets/images/readme.jpg)
+![Website printscreen](./public/readme.jpg)
 
 - [English](#English)
 - [Português](#Português)
@@ -33,7 +33,7 @@ Linkbio was entirely made from scratch by [Angelo Dias](http://angelodias.com.br
 
 There's a thorought tutorial on how to use the website on itself.
 
-![A gif showcasing the tutorial](./src/assets/images/tutorial.gif)
+![A gif showcasing the tutorial](./public/tutorial.gif)
 
 This website was built using `Typescript` and `React`.
 
@@ -82,7 +82,7 @@ Linkbio foi inteiramente feito do zero por [Angelo Dias](http://angelodias.com.b
 
 Há um tutorial disponível no próprio site.
 
-![Um gif mostrando o tutorial](./src/assets/images/tutorial.gif)
+![Um gif mostrando o tutorial](./public/tutorial.gif)
 
 Este projeto foi construído usando `Typescript` e `React`.
 
