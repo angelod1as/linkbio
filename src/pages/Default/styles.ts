@@ -132,12 +132,18 @@ export const EditPanel = styled(noScroll)`
   }
 `;
 
-export const PreviewPanel = styled(noScroll)<{ isDisplay: boolean }>`
+export const PreviewPanel = styled(noScroll)`
   overflow-y: scroll;
   height: 100vh;
-  padding: 0;
   margin: 0;
   background-color: ${blue};
-  border-left: ${(props) => (props.isDisplay ? 'none' : `5px solid ${gold}`)};
-  padding: 50px 20px;
+  padding: 50px 20px 100px;
+`;
+
+export const TutorialPanel = styled(noScroll)`
+  overflow-y: scroll;
+  height: 100vh;
+  margin: 0;
+  background-color: ${blue};
+  padding: 50px 50px 100px;
 `;

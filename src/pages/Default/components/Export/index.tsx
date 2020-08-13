@@ -32,7 +32,18 @@ const LinkOrCode = styled.div`
   }
 `;
 
-const Export = ({ social, header, links }: ILists) => {
+interface IProps extends ILists {
+  setIsTutorial: React.Dispatch<React.SetStateAction<boolean>>;
+  isTutorial: boolean;
+}
+
+const Export = ({
+  social,
+  header,
+  links,
+  setIsTutorial,
+  isTutorial,
+}: IProps) => {
   const { t } = useTranslation();
   const [exportType, setExportType] = useState('url');
   const [finalString, setFinalString] = useState('');
@@ -72,11 +83,16 @@ const Export = ({ social, header, links }: ILists) => {
   const handleChange = useCallback(
     (type) => {
       setFinalString('');
+      setShortened('');
       setExportType(type);
       exportList(type);
     },
     [exportList],
   );
+
+  const tutorial = useCallback(() => {
+    setIsTutorial(!isTutorial);
+  }, [setIsTutorial, isTutorial]);
 
   return (
     <Styled>
@@ -124,7 +140,9 @@ const Export = ({ social, header, links }: ILists) => {
           {t('Get short')}
         </button>
       ) : (
-        ''
+        <button type="button" onClick={tutorial}>
+          {isTutorial ? t('Close tutorial') : t('See tutorial')}
+        </button>
       )}
 
       {error ? <small>{error}</small> : ''}
@@ -168,8 +186,8 @@ const Export = ({ social, header, links }: ILists) => {
                   or it's shortened version — and paste it wherever you like.
                 </li>
                 <li>
-                  <b>Cons:</b> Every time you change your list, you will need to
-                  change the links everywhere.
+                  <b>Cons:</b> Needs a really small setup. Like, really small,
+                  just follow a few steps.
                 </li>
               </ul>
             </Trans>

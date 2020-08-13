@@ -30,9 +30,10 @@ const Footer = () => {
     <Styled>
       <Trans i18nKey="footer">
         <p>
-          Text <A href="http://angelodias.com.br">Name</A>.Text
-          <A href="http://www.github.com/angelod1as/linkbio">GitHub</A>. Text
-          <A href="http://angelod1as.github.io/linkbio/">here</A>.
+          Developed by <A href="http://angelodias.com.br">Angelo Dias</A>.
+          Contributions or feedback through{' '}
+          <A href="http://www.github.com/angelod1as/linkbio">GitHub</A>. Make
+          your own list <A href="http://angelod1as.github.io/linkbio/">here</A>.
         </p>
       </Trans>
     </Styled>

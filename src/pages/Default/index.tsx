@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
-import { Container, EditPanel, PreviewPanel } from './styles';
+import { Container, EditPanel, PreviewPanel, TutorialPanel } from './styles';
 
 import IHeader from '../../dtos/IHeader';
 import ISocial from '../../dtos/ISocial';
@@ -17,6 +17,7 @@ import Import from './components/Import';
 import Header from './components/Header';
 import Form from './components/Form';
 import Export from './components/Export';
+import Tutorial from './components/Tutorial';
 
 interface IParams {
   match: {
@@ -24,12 +25,6 @@ interface IParams {
       lang: string;
     };
   };
-}
-
-interface IAfterImport {
-  header: IHeader;
-  social: ISocial;
-  links: ILinks[];
 }
 
 const Default = ({
@@ -41,6 +36,7 @@ const Default = ({
   const { i18n } = useTranslation();
 
   const [isDisplay, setIsDisplay] = useState(true);
+  const [isTutorial, setIsTutorial] = useState(true);
 
   const [socialList, setSocialList] = useState<ISocial>({
     instagram: 'http://www.instagram.com/cronofobico',
@@ -156,17 +152,25 @@ const Default = ({
                 social={lists.social}
                 header={lists.header}
                 links={lists.links}
+                setIsTutorial={setIsTutorial}
+                isTutorial={isTutorial}
               />
             </div>
           </EditPanel>
         )}
-        <PreviewPanel isDisplay>
-          <Preview
-            social={lists.social}
-            header={lists.header}
-            links={lists.links}
-          />
-        </PreviewPanel>
+        {isTutorial ? (
+          <TutorialPanel>
+            <Tutorial setIsTutorial={setIsTutorial} />
+          </TutorialPanel>
+        ) : (
+          <PreviewPanel>
+            <Preview
+              social={lists.social}
+              header={lists.header}
+              links={lists.links}
+            />
+          </PreviewPanel>
+        )}
       </div>
       <Footer />
     </Container>
