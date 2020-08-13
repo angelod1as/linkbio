@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
-import { gold, blue, pink } from '../../../../../styles/global';
+import { gold, blue, pink, bp } from '../../../../../styles/global';
 
 export const Styled = styled.div`
   margin: 20px 0;
+  @media ${bp.medium} {
+    margin-top: 30px;
+  }
 `;
 
 export const Form = styled.form`
@@ -12,6 +15,12 @@ export const Form = styled.form`
   grid-template-columns: repeat(2, 1fr);
   button {
     grid-column: span 2;
+  }
+  @media ${bp.medium} {
+    display: block;
+    label {
+      margin-top: 15px;
+    }
   }
 `;
 
@@ -48,6 +57,12 @@ export const LinkHolder = styled.div`
     }
     & + button {
       margin: 0 5px;
+    }
+    @media ${bp.medium} {
+      margin: 0 2px;
+      & + button {
+        margin: 0 2px;
+      }
     }
   }
 `;

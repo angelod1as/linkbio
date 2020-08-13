@@ -4,6 +4,12 @@ export const pink = '#F2A0AF';
 export const blue = '#03258C';
 export const gold = '#F2CB05';
 
+export const bp = {
+  large: `(max-width: 1200px)`,
+  medium: `(max-width: 900px)`,
+  small: `(max-width: 600px)`,
+};
+
 export default createGlobalStyle`
   * {
     margin: 0;

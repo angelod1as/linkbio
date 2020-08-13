@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { pink, blue, gold } from '../../styles/global';
+import { pink, blue, gold, bp } from '../../styles/global';
 
 const shadowButton = `none`;
 const shadowPressed = `5px 5px 0px 0px ${blue}`;
@@ -43,13 +43,32 @@ const noScroll = styled.div`
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media ${bp.medium} {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div<{ isDisplay: boolean }>`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  ${({ isDisplay }) => (isDisplay ? 'display: block;' : '')}
+  @media ${bp.medium} {
+    display: block;
+  }
+`;
 
 export const EditPanel = styled(noScroll)`
   overflow-y: scroll;
   height: 100vh;
+  @media ${bp.medium} {
+    min-height: 100vh;
+    height: 100%;
+  }
   padding: 0;
   padding: 50px 20px;
 
@@ -135,6 +154,10 @@ export const EditPanel = styled(noScroll)`
 export const PreviewPanel = styled(noScroll)`
   overflow-y: scroll;
   height: 100vh;
+  @media ${bp.medium} {
+    min-height: 100vh;
+    height: 100%;
+  }
   margin: 0;
   background-color: ${blue};
   padding: 50px 20px 100px;
@@ -143,6 +166,10 @@ export const PreviewPanel = styled(noScroll)`
 export const TutorialPanel = styled(noScroll)`
   overflow-y: scroll;
   height: 100vh;
+  @media ${bp.medium} {
+    min-height: 100vh;
+    height: 100%;
+  }
   margin: 0;
   background-color: ${blue};
   padding: 50px 50px 100px;

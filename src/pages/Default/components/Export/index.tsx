@@ -5,8 +5,18 @@ import ILists from '../../../../dtos/ILists';
 import templates from './components';
 import api from '../../../../services/api';
 
+import { bp } from '../../../../styles/global';
+
 const Styled = styled.div`
   margin: 40px 0;
+  @media ${bp.medium} {
+    label.button-label {
+      margin: 10px 0 5px 0;
+      & + label {
+        margin: 10px 0;
+      }
+    }
+  }
 `;
 
 const LinkOrCode = styled.div`
@@ -18,6 +28,9 @@ const LinkOrCode = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0 20px;
+    @media ${bp.medium} {
+      display: block;
+    }
   }
 
   h4 {

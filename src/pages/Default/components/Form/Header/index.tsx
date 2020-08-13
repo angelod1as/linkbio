@@ -3,15 +3,25 @@ import styled from 'styled-components';
 import { Trans, useTranslation } from 'react-i18next';
 import IHeader from '../../../../../dtos/IHeader';
 import A from '../../../../../components/A';
+import { bp } from '../../../../../styles/global';
 
 const Styled = styled.div`
   margin: 20px 0;
+  @media ${bp.medium} {
+    margin-top: 30px;
+  }
 `;
 
 const Form = styled.form`
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(2, 1fr);
+  @media ${bp.medium} {
+    display: block;
+    label {
+      margin-top: 15px;
+    }
+  }
 `;
 
 interface IProps {

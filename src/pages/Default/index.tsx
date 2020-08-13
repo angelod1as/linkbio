@@ -121,57 +121,49 @@ const Default = ({
   }, [i18n, lang, setIsDisplay, history]);
 
   return (
-    <Container>
-      <div
-        style={{
-          // For some reason Styled Components isn't working with this
-          display: isDisplay ? 'block' : 'grid',
-          gridTemplateColumns: '1fr 1fr',
-        }}
-      >
-        {isDisplay ? (
-          ''
-        ) : (
-          <EditPanel>
-            <div>
-              <Header lang={lang} />
+    <Container isDisplay={isDisplay}>
+      {isDisplay ? (
+        ''
+      ) : (
+        <EditPanel>
+          <div>
+            <Header lang={lang} />
 
-              <Import
-                setSocialList={setSocialList}
-                setHeaderList={setHeaderList}
-                setLinkList={setLinkList}
-              />
+            <Import
+              setSocialList={setSocialList}
+              setHeaderList={setHeaderList}
+              setLinkList={setLinkList}
+            />
 
-              <Form
-                social={lists.social}
-                header={lists.header}
-                links={lists.links}
-              />
-
-              <Export
-                social={lists.social}
-                header={lists.header}
-                links={lists.links}
-                setIsTutorial={setIsTutorial}
-                isTutorial={isTutorial}
-              />
-            </div>
-          </EditPanel>
-        )}
-        {isTutorial ? (
-          <TutorialPanel>
-            <Tutorial setIsTutorial={setIsTutorial} />
-          </TutorialPanel>
-        ) : (
-          <PreviewPanel>
-            <Preview
+            <Form
               social={lists.social}
               header={lists.header}
               links={lists.links}
             />
-          </PreviewPanel>
-        )}
-      </div>
+
+            <Export
+              social={lists.social}
+              header={lists.header}
+              links={lists.links}
+              setIsTutorial={setIsTutorial}
+              isTutorial={isTutorial}
+            />
+          </div>
+        </EditPanel>
+      )}
+      {isTutorial ? (
+        <TutorialPanel>
+          <Tutorial setIsTutorial={setIsTutorial} />
+        </TutorialPanel>
+      ) : (
+        <PreviewPanel>
+          <Preview
+            social={lists.social}
+            header={lists.header}
+            links={lists.links}
+          />
+        </PreviewPanel>
+      )}
       <Footer />
     </Container>
   );
