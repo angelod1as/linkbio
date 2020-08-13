@@ -36,6 +36,7 @@
     "Get short":"Gerar URL curta",
     "Full URLs": "Por favor insira URLs completas, com 'http' e tudo",
     "Import error": "Sua URL está incorreta. Copie novamente e cheque se tem um 'list?' nela",
+    "Import error - no Linkbio": "Há algo de errado neste código. Tem certeza que ele veio deste site?",
     "Link or code": "Deveria usar Link ou Código?",
     "Link explanation": "<0>Link:</0><1><0><0>Prós: </0>Fácil do tipo clicar-copiar-colar. Pegue a URL exibida — ou sua versão encurtada — e cole onde quiser.</0><0><0>Contras: </0> Toda vez que você mudar a lista, vai ter que mudar o link em todo o lugar (A URL muda quando sua lista muda)</0></1>",
     "Code explanation": "<0>Código:</0><1><0><0>Prós: </0>Mesma URL, sem segredo. Você pode até usar uma URL própria, como seusite.com.</0><0><0>Contras: </0>Precisa de uma configuração básica. Tipo, realmente básica, só seguir alguns passos. Veja o tutorial clicando aqui (opa, isso não foi implementado ainda)</0></1>",

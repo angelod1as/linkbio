@@ -36,6 +36,7 @@
     "Get short":"Get short URL",
     "Full URLs": "Please insert full URLs, with 'http' and all",
     "Import error": "Your URL is wrong. Copy again and check if there's a 'list?' in it",
+    "Import error - no Linkbio": "There's something wrong with this code. Are you sure it came from this website?",
     "Link or code": "Should I use Link or Code?",
     "Link explanation": "<0>Link:</0><1><0><0>Pros: </0>easy as click-copy-paste. Get the provided URL — or it's shortened version — and paste it wherever you like.</0><0><0>Cons: </0> Every time you change your list, you will need to change the links everywhere (the URL changes as your list changes too).</0></1>",
     "Code explanation": "<0>Code:</0><1><0><0>Pros: </0>Same URL, short and straight. You can even use a custom URL, like yoursite.com.</0><0><0>Cons: </0>Needs a really small setup. Like, really small, just follow a few steps. You can see the tutorial clicking here (oops, not yet implemented!).</0></1>",

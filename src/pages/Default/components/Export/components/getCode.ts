@@ -13,8 +13,6 @@ const getCode = (props: ILists): string => {
 
   const html = `
   ${doctype()}
-  <html class="no-js" lang="">
-    <!--<![endif]-->
     ${head(headerInfo)}
     <body>
       <!--[if lt IE 8]>

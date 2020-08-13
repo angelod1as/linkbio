@@ -26,6 +26,12 @@ interface IParams {
   };
 }
 
+interface IAfterImport {
+  header: IHeader;
+  social: ISocial;
+  links: ILinks[];
+}
+
 const Default = ({
   match: {
     params: { lang },
@@ -35,17 +41,19 @@ const Default = ({
   const { i18n } = useTranslation();
 
   const [isDisplay, setIsDisplay] = useState(true);
+
   const [socialList, setSocialList] = useState<ISocial>({
     instagram: 'http://www.instagram.com/cronofobico',
     facebook: '',
     linkedin: 'http://www.linkedin.com/in/angelod1as',
     twitter: 'http://www.twitter.com/oicronofobico',
   });
+
   const [headerList, setHeaderList] = useState<IHeader>({
     name: "Cronofobico's Links",
     image: 'https://i.imgur.com/Ph3aPbR.jpg',
-    color: '',
   });
+
   const [linkList, setLinkList] = useState<ILinks[]>([
     {
       title: 'My portfolio',
@@ -132,7 +140,11 @@ const Default = ({
             <div>
               <Header lang={lang} />
 
-              <Import />
+              <Import
+                setSocialList={setSocialList}
+                setHeaderList={setHeaderList}
+                setLinkList={setLinkList}
+              />
 
               <Form
                 social={lists.social}

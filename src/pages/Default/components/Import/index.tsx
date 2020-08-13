@@ -3,6 +3,11 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
+import importCode from './importCode';
+import ISocial from '../../../../dtos/ISocial';
+import IHeader from '../../../../dtos/IHeader';
+import ILinks from '../../../../dtos/ILinks';
+
 const ImportDiv = styled.div`
   margin: 40px 0;
 `;
@@ -11,7 +16,13 @@ const Form = styled.form`
   margin: 10px 0 40px;
 `;
 
-const Import = () => {
+interface IParams {
+  setSocialList: React.Dispatch<React.SetStateAction<ISocial>>;
+  setHeaderList: React.Dispatch<React.SetStateAction<IHeader>>;
+  setLinkList: React.Dispatch<React.SetStateAction<ILinks[]>>;
+}
+
+const Import = ({ setSocialList, setHeaderList, setLinkList }: IParams) => {
   const { t } = useTranslation();
   const history = useHistory();
   const [importType, setImportType] = useState('url');
@@ -19,14 +30,36 @@ const Import = () => {
   const [error, setError] = useState('');
 
   const handleImport = useCallback(() => {
-    if (importContent.includes('list?')) {
-      const string = importContent.split('list?')[1];
-      const url = `edit?${string}`;
-      history.push(url);
+    // If URL
+    if (importType === 'url') {
+      if (importContent.includes('list?')) {
+        const string = importContent.split('list?')[1];
+        const url = `edit?${string}`;
+        history.push(url);
+      } else {
+        setError(t('Import error'));
+      }
+      // If valid code
+    } else if (importContent.includes('<!--LINKBIO-CONTENT-->')) {
+      const { header, social, links } = importCode(importContent);
+      setHeaderList(header);
+      setSocialList(social);
+      setLinkList(links);
+      setImportContent('');
+
+      // not url nor invalid code
     } else {
-      setError(t('Import error'));
+      setError(t('Import error - no Linkbio'));
     }
-  }, [importContent, history, t]);
+  }, [
+    setHeaderList,
+    setSocialList,
+    setLinkList,
+    importType,
+    importContent,
+    history,
+    t,
+  ]);
 
   return (
     <ImportDiv>
@@ -82,8 +115,8 @@ const Import = () => {
               id="import"
               cols={30}
               rows={10}
-              defaultValue="Not yet implemented :("
-              readOnly
+              onChange={(e) => setImportContent(e.target.value)}
+              value={importContent}
             />
           )}
 
