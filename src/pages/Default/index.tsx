@@ -47,7 +47,7 @@ const Default = ({
 
   const [headerList, setHeaderList] = useState<IHeader>({
     name: "Cronofobico's Links",
-    image: 'https://i.imgur.com/Ph3aPbR.jpg',
+    image: '',
   });
 
   const [linkList, setLinkList] = useState<ILinks[]>([
