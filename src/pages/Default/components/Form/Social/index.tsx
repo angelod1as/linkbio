@@ -24,6 +24,15 @@ const Form = styled.form`
   }
 `;
 
+const Helper = styled.p`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  small {
+    margin: 0;
+  }
+`;
+
 interface IProps {
   list: ISocial;
   hook: React.Dispatch<React.SetStateAction<ISocial>>;
@@ -39,8 +48,11 @@ const Social = ({ list, hook }: IProps) => {
       const newInformation = { ...information };
       const { id, value } = e.target;
 
-      newInformation[id] = value;
-
+      if (id === 'whatsapp') {
+        newInformation[id] = value.replace(/[^0-9]/gi, '');
+      } else {
+        newInformation[id] = value;
+      }
       setInformation(newInformation);
     },
     [setInformation, information],
@@ -94,6 +106,23 @@ const Social = ({ list, hook }: IProps) => {
             value={list.linkedin}
           />
         </label>
+
+        <label htmlFor="whatsapp" className="phonenum">
+          {t('Whatsapp url')}
+          <input
+            type="tel"
+            name="whatsapp"
+            id="whatsapp"
+            onChange={(e) => handleChange(e)}
+            value={list.whatsapp}
+          />
+        </label>
+
+        <Helper>
+          <small>Whatsapp format:</small>
+          <small>[Country code][State][Number]</small>
+          <small>Example: 551199999999</small>
+        </Helper>
       </Form>
     </Styled>
   );

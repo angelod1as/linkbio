@@ -43,6 +43,7 @@ const Default = ({
     facebook: '',
     linkedin: 'http://www.linkedin.com/in/angelod1as',
     twitter: 'http://www.twitter.com/oicronofobico',
+    whatsapp: '',
   });
 
   const [headerList, setHeaderList] = useState<IHeader>({

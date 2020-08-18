@@ -37,6 +37,13 @@ export const Social = styled(centerFlex)`
     margin: 0 5px;
     width: 30px;
     height: 30px;
+    /* background-color: ${white}; */
+    border-radius: 50%;
+    svg {
+      path {
+        fill: ${white};
+      }
+    }
     &:hover {
       opacity: 0.5;
     }

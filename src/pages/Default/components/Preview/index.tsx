@@ -8,6 +8,7 @@ import Facebook from './logos/Facebook';
 import Instagram from './logos/Instagram';
 import Twitter from './logos/Twitter';
 import Linkedin from './logos/Linkedin';
+import Whatsapp from './logos/Whatsapp';
 
 const Preview = ({ social, header, links }: ILists) => {
   return (
@@ -41,6 +42,13 @@ const Preview = ({ social, header, links }: ILists) => {
         {social.list.linkedin ? (
           <A href={social.list.linkedin}>
             <Linkedin />
+          </A>
+        ) : (
+          ''
+        )}
+        {social.list.whatsapp ? (
+          <A href={`http://wa.me/${social.list.whatsapp}`}>
+            <Whatsapp />
           </A>
         ) : (
           ''

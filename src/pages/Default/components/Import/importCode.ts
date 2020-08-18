@@ -49,6 +49,15 @@ const importCode = (
         .split('" rel')[0]
     : '';
 
+  const whatsapp = html.includes('<!-- import=whatsapp-start -->')
+    ? html
+        .split('<!-- import=whatsapp-start -->')[1]
+        .split('<!-- import=whatsapp-end -->')[0]
+        .split('<a href="')[1]
+        .split('" rel')[0]
+        .split('wa.me/')[1]
+    : '';
+
   const links = html
     .split('<!-- import=linklist-start -->')[1]
     .split('<!-- import=linklist-end -->')[0]
@@ -71,6 +80,7 @@ const importCode = (
       facebook,
       linkedin,
       twitter,
+      whatsapp,
     },
     links,
   };
