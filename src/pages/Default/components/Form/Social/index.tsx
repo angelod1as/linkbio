@@ -108,7 +108,7 @@ const Social = ({ list, hook }: IProps) => {
         </label>
 
         <label htmlFor="whatsapp" className="phonenum">
-          {t('Whatsapp url')}
+          {t('Whatsapp number')}
           <input
             type="tel"
             name="whatsapp"
@@ -119,9 +119,9 @@ const Social = ({ list, hook }: IProps) => {
         </label>
 
         <Helper>
-          <small>Whatsapp format:</small>
-          <small>[Country code][State][Number]</small>
-          <small>Example: 551199999999</small>
+          <small>{t('Whatsapp format')}:</small>
+          <small>{t('Whatsapp format example')}</small>
+          <small>{t('Example num')}</small>
         </Helper>
       </Form>
     </Styled>
