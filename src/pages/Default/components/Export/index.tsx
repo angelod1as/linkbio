@@ -153,10 +153,13 @@ const Export = ({
           {t('Get short')}
         </button>
       ) : (
+        ''
+      )}
+      <div>
         <button type="button" onClick={tutorial}>
           {isTutorial ? t('Close tutorial') : t('See tutorial')}
         </button>
-      )}
+      </div>
 
       {error ? <small>{error}</small> : ''}
 
