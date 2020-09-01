@@ -109,29 +109,33 @@ const Default = ({
     }
 
     i18n.changeLanguage(lang);
+  }, [i18n, lang, setIsDisplay, history]);
 
-    if (lang === 'list') {
-      setIsDisplay(true);
-      const { search } = history.location;
-      const information = search.split('?information=')[1];
-      const { social, header, links } = importString(information);
-      setSocialList(social.list);
-      setHeaderList(header.list);
-      setLinkList(links.list);
-    } else if (lang === 'edit') {
-      setIsDisplay(false);
+  useEffect(() => {
+    const updateInformationOnLoad = () => {
       const { search } = history.location;
       const information = search.split('?information=')[1];
       const { social, header, links, color } = importString(information);
-      history.push('/en');
       setSocialList(social.list);
       setHeaderList(header.list);
       setLinkList(links.list);
-      setColorList(color ? color.list : colorList);
+      // setColorList(color && color.list ? color.list : colorList);
+      setColorList((startingColor) =>
+        color && color.list ? color.list : startingColor,
+      );
+    };
+
+    if (lang === 'list') {
+      setIsDisplay(true);
+      updateInformationOnLoad();
+    } else if (lang === 'edit') {
+      setIsDisplay(false);
+      updateInformationOnLoad();
+      history.push('/en');
     } else {
       setIsDisplay(false);
     }
-  }, [i18n, lang, setIsDisplay, history, colorList]);
+  }, [history, lang]);
 
   return (
     <Container isDisplay={isDisplay} colors={colorList}>
