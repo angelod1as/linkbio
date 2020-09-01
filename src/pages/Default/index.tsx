@@ -133,7 +133,7 @@ const Default = ({
   }, [i18n, lang, setIsDisplay, history]);
 
   return (
-    <Container isDisplay={isDisplay}>
+    <Container isDisplay={isDisplay} colors={colorList}>
       {isDisplay ? (
         ''
       ) : (

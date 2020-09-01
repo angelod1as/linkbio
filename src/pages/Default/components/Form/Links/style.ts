@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { gold, blue, pink, bp } from '../../../../../styles/global';
+import { bp } from '../../../../../styles/global';
 
 export const Styled = styled.div`
   margin: 20px 0;
@@ -30,12 +30,12 @@ export const LinkHolder = styled.div`
   width: 100%;
   display: flex;
   padding: 10px;
-  background-color: ${gold};
+  background-color: var(--secondary-color);
   margin: 10px 0;
-  border: 3px solid ${blue};
+  border: 3px solid var(--tertiary-color);
   transition: box-shadow 0.3s;
   &:hover {
-    box-shadow: 0px 0px 10px 0px ${blue};
+    box-shadow: 0px 0px 10px 0px var(--tertiary-color);
   }
   p {
     margin: 0 10px;
@@ -46,14 +46,14 @@ export const LinkHolder = styled.div`
 
   button {
     transition: 0.2s;
-    border: 3px solid ${blue};
-    color: ${blue};
-    background-color: ${pink};
+    border: 3px solid var(--tertiary-color);
+    color: var(--tertiary-color);
+    background-color: var(--primary-color);
     margin: 0 5px;
     flex: 0;
     padding: 2px 5px;
     &:hover {
-      box-shadow: 5px 5px 5px 0px ${pink};
+      box-shadow: 5px 5px 5px 0px var(--primary-color);
     }
     & + button {
       margin: 0 5px;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { gold, blue } from '../../../../styles/global';
 
 const white = '#e8e8e8';
 
@@ -22,7 +21,7 @@ export const Header = styled(centerFlex)`
     width: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid ${gold};
+    border: 3px solid var(--secondary-color);
   }
   h1 {
     margin: 20px;
@@ -58,16 +57,16 @@ export const LinkHolder = styled(centerFlex)`
   a {
     transition: all 0.2s;
     text-decoration: none;
-    background-color: ${blue};
-    border: 3px solid ${gold};
+    background-color: var(--tertiary-color);
+    border: 3px solid var(--secondary-color);
     margin: 10px 0;
     padding: 10px 30px;
     color: ${white};
     width: 100%;
     text-align: center;
     &:hover {
-      color: ${blue};
-      background-color: ${gold};
+      color: var(--tertiary-color);
+      background-color: var(--secondary-color);
     }
   }
 `;

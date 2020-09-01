@@ -13,29 +13,28 @@ import img9 from '../../../../assets/images/9.jpg';
 import img10 from '../../../../assets/images/10.jpg';
 import img11 from '../../../../assets/images/11.jpg';
 
-import { gold, pink, blue } from '../../../../styles/global';
 import A from '../../../../components/A';
 
 const Styled = styled.div`
-  background-color: ${blue};
-  color: ${pink};
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
   padding: 50px;
-  border: 5px solid ${gold};
+  border: 5px solid var(--secondary-color);
   min-height: 80vh;
 
   h1 {
     margin: 0 0 20px 0;
-    color: ${gold};
+    color: var(--secondary-color);
   }
 
   h2 {
     margin: 40px 0 20px;
-    color: ${gold};
+    color: var(--secondary-color);
   }
 
   h3 {
     margin: 40px 0 20px;
-    color: ${gold};
+    color: var(--secondary-color);
   }
 
   p {
@@ -52,7 +51,7 @@ const Styled = styled.div`
 
   hr {
     border: 0;
-    border-top: 1px dashed ${pink};
+    border-top: 1px dashed var(--primary-color);
     margin: 40px 0;
   }
 
@@ -61,18 +60,18 @@ const Styled = styled.div`
     max-width: 500px;
     width: 100%;
     height: auto;
-    box-shadow: 10px 10px 0px 0px ${gold};
-    border: 1px solid ${blue};
+    box-shadow: 10px 10px 0px 0px var(--secondary-color);
+    border: 1px solid var(--tertiary-color);
   }
 
   a {
-    color: ${pink};
+    color: var(--primary-color);
     font-style: italic;
     transition: box-shadow 0.3s, background-color 0.3s;
     &:hover {
-      color: ${blue};
-      box-shadow: 0px 0px 15px 10px ${gold};
-      background-color: ${gold};
+      color: var(--tertiary-color);
+      box-shadow: 0px 0px 15px 10px var(--secondary-color);
+      background-color: var(--secondary-color);
     }
   }
 `;
@@ -86,15 +85,15 @@ const Close = styled.button`
   height: 30px;
   border-radius: 50%;
   transition: 0.2s;
-  border: 3px solid ${gold};
-  color: ${gold};
+  border: 3px solid var(--secondary-color);
+  color: var(--secondary-color);
   font-size: 13px;
-  background-color: ${blue};
+  background-color: var(--tertiary-color);
   &:hover {
-    border: 3px solid ${blue};
-    background-color: ${gold};
-    box-shadow: 0px 0px 10px 5px ${pink};
-    color: ${blue};
+    border: 3px solid var(--tertiary-color);
+    background-color: var(--secondary-color);
+    box-shadow: 0px 0px 10px 5px var(--primary-color);
+    color: var(--tertiary-color);
   }
   & + button {
     margin: 0 5px;

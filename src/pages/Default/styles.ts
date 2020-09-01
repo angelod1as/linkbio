@@ -1,25 +1,27 @@
 import styled from 'styled-components';
 
-import { pink, blue, gold, bp } from '../../styles/global';
+import { bp } from '../../styles/global';
+
+import IColor from '../../dtos/IColor';
 
 const shadowButton = `none`;
-const shadowPressed = `5px 5px 0px 0px ${blue}`;
-const shadowButtonHover = `7px 7px 10px 0px ${blue}`;
-const shadowPressedHover = `7px 7px 10px 0px ${gold}`;
+const shadowPressed = `5px 5px 0px 0px var(--tertiary-color)`;
+const shadowButtonHover = `7px 7px 10px 0px var(--tertiary-color)`;
+const shadowPressedHover = `7px 7px 10px 0px var(--secondary-color)`;
 
 const button = `
   transition: .2s;
   transition: box-shadow .6s;
-  color: ${gold};
-  background: ${blue};
+  color: var(--secondary-color);
+  background: var(--tertiary-color);
   appearance: none;
   border: none;
   box-shadow: ${shadowButton};
   padding: 10px;
   margin: 10px 0;
   &:hover {
-    color: ${gold};
-    background: ${blue};
+    color: var(--secondary-color);
+    background: var(--tertiary-color);
     box-shadow: ${shadowPressedHover};
   }
 `;
@@ -28,11 +30,11 @@ const pressedButton = `
   transition: .2s;
   transition: box-shadow .6s;
   box-shadow: ${shadowPressed};
-  color: ${blue};
-  background: ${gold};
+  color: var(--tertiary-color);
+  background: var(--secondary-color);
   &:hover {
-    color: ${blue};
-    background: ${gold};
+    color: var(--tertiary-color);
+    background: var(--secondary-color);
     box-shadow: ${shadowButtonHover};
   }
 `;
@@ -53,7 +55,15 @@ const noScroll = styled.div`
   }
 `;
 
-export const Container = styled.div<{ isDisplay: boolean }>`
+export const Container = styled.div<{
+  isDisplay: boolean;
+  colors: IColor;
+}>`
+  --primary-color: ${(pr) => pr.colors.primary};
+  --secondary-color: ${(pr) => pr.colors.secondary};
+  --tertiary-color: ${(pr) => pr.colors.tertiary};
+  background: var(--primary-color);
+  color: var(--tertiary-color);
   display: grid;
   grid-template-columns: 1fr 1fr;
   ${({ isDisplay }) => (isDisplay ? 'display: block;' : '')}
@@ -78,12 +88,12 @@ export const EditPanel = styled(noScroll)`
   }
 
   a {
-    color: ${blue};
+    color: var(--tertiary-color);
     font-style: italic;
     transition: box-shadow 0.3s, background-color 0.3s;
     &:hover {
-      box-shadow: 0px 0px 15px 10px ${gold};
-      background-color: ${gold};
+      box-shadow: 0px 0px 15px 10px var(--secondary-color);
+      background-color: var(--secondary-color);
     }
   }
 
@@ -119,17 +129,17 @@ export const EditPanel = styled(noScroll)`
     transition: 0.3s;
     transition: width 0s;
     border: none;
-    box-shadow: inset 0px 0px 0px 3px ${blue};
+    box-shadow: inset 0px 0px 0px 3px var(--tertiary-color);
     padding: 10px;
-    background-color: ${pink};
-    color: ${blue};
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
     &[type='radio'] {
       display: none;
     }
     &:focus {
-      background-color: ${blue};
-      color: ${gold};
-      box-shadow: inset 0px 0px 3px 3px ${pink};
+      background-color: var(--tertiary-color);
+      color: var(--secondary-color);
+      box-shadow: inset 0px 0px 3px 3px var(--primary-color);
     }
   }
 
@@ -159,7 +169,7 @@ export const PreviewPanel = styled(noScroll)`
     height: 100%;
   }
   margin: 0;
-  background-color: ${blue};
+  background-color: var(--tertiary-color);
   padding: 50px 20px 100px;
 `;
 
@@ -171,6 +181,6 @@ export const TutorialPanel = styled(noScroll)`
     height: 100%;
   }
   margin: 0;
-  background-color: ${blue};
+  background-color: var(--tertiary-color);
   padding: 50px 50px 100px;
 `;

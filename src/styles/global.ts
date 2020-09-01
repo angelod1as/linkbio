@@ -1,9 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const pink = '#F2A0AF';
-export const blue = '#03258C';
-export const gold = '#F2CB05';
-
 export const bp = {
   large: `(max-width: 1200px)`,
   medium: `(max-width: 900px)`,
@@ -19,8 +15,6 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${pink};
-    color: ${blue};
     -webkit-font-smoothing: antialiased;
   }
 
