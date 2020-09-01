@@ -13,14 +13,14 @@ const Styled = styled.div`
   margin: 40px 0;
 `;
 
-const Form = ({ social, header, links }: ILists) => {
+const Form = ({ social, header, links, color }: ILists) => {
   const { t } = useTranslation();
   return (
     <Styled>
       <h2>{t('Form header title')}</h2>
       <Header list={header.list} hook={header.hook} />
       <Social list={social.list} hook={social.hook} />
-      <Color />
+      <Color list={color.list} hook={color.hook} />
       <Links list={links.list} hook={links.hook} />
     </Styled>
   );

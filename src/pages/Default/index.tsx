@@ -50,7 +50,7 @@ const Default = ({
   const [colorList, setColorList] = useState<IColor>({
     primary: '#F2A0AF',
     secondary: '#F2CB05',
-    font: '#03258C',
+    tertiary: '#03258C',
   });
 
   const [headerList, setHeaderList] = useState<IHeader>({
