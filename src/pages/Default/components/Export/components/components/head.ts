@@ -2,7 +2,10 @@ import ILists from '../../../../../../dtos/ILists';
 import normalize from './normalize';
 import styles from './styles';
 
-const head = (header: ILists['header']['list']) => {
+const head = (
+  header: ILists['header']['list'],
+  color: ILists['color']['list'],
+) => {
   return `
   <head>
   <meta charset="utf-8" />
@@ -33,7 +36,7 @@ const head = (header: ILists['header']['list']) => {
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
 
   ${normalize()}
-  ${styles()}
+  ${styles(color)}
 
 </head>
   `;

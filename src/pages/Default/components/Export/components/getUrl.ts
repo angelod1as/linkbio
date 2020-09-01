@@ -1,6 +1,6 @@
 import ILists from '../../../../../dtos/ILists';
 
-const getUrl = ({ social, header, links }: ILists): string => {
+const getUrl = ({ social, header, links, color }: ILists): string => {
   // I'd love to find a better way to get the current URL and return it.
   // But I just... can't.
   // This way isn't the best because I have to hardcode the available languages.
@@ -11,6 +11,7 @@ const getUrl = ({ social, header, links }: ILists): string => {
     social,
     header,
     links,
+    color,
   };
   const string = encodeURIComponent(JSON.stringify(json));
 

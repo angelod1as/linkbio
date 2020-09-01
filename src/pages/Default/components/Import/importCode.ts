@@ -1,10 +1,21 @@
 import ISocial from '../../../../dtos/ISocial';
 import IHeader from '../../../../dtos/IHeader';
 import ILinks from '../../../../dtos/ILinks';
+import IColor from '../../../../dtos/IColor';
 
 const importCode = (
   html: string,
-): { social: ISocial; header: IHeader; links: ILinks[] } => {
+): { social: ISocial; header: IHeader; links: ILinks[]; color: IColor } => {
+  // colors
+  const colors = html
+    .split(/--color(.*?);/g)
+    .splice(1, 5)
+    .map((each) => {
+      return each !== '' ? each.split(': ')[1] : '';
+    });
+  colors.splice(1, 1);
+  colors.splice(2, 1);
+
   const name = html
     .split('<!-- import=name-start -->')[1]
     .split('<!-- import=name-end -->')[0]
@@ -83,6 +94,11 @@ const importCode = (
       whatsapp,
     },
     links,
+    color: {
+      primary: colors[0],
+      secondary: colors[1],
+      tertiary: colors[2],
+    },
   };
 };
 

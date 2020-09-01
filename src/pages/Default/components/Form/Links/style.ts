@@ -30,12 +30,12 @@ export const LinkHolder = styled.div`
   width: 100%;
   display: flex;
   padding: 10px;
-  background-color: var(--secondary-color);
+  background-color: var(--color-secondary);
   margin: 10px 0;
-  border: 3px solid var(--tertiary-color);
+  border: 3px solid var(--color-tertiary);
   transition: box-shadow 0.3s;
   &:hover {
-    box-shadow: 0px 0px 10px 0px var(--tertiary-color);
+    box-shadow: 0px 0px 10px 0px var(--color-tertiary);
   }
   p {
     margin: 0 10px;
@@ -46,14 +46,14 @@ export const LinkHolder = styled.div`
 
   button {
     transition: 0.2s;
-    border: 3px solid var(--tertiary-color);
-    color: var(--tertiary-color);
-    background-color: var(--primary-color);
+    border: 3px solid var(--color-tertiary);
+    color: var(--color-tertiary);
+    background-color: var(--color-primary);
     margin: 0 5px;
     flex: 0;
     padding: 2px 5px;
     &:hover {
-      box-shadow: 5px 5px 5px 0px var(--primary-color);
+      box-shadow: 5px 5px 5px 0px var(--color-primary);
     }
     & + button {
       margin: 0 5px;

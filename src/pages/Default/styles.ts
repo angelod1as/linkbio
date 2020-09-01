@@ -5,23 +5,23 @@ import { bp } from '../../styles/global';
 import IColor from '../../dtos/IColor';
 
 const shadowButton = `none`;
-const shadowPressed = `5px 5px 0px 0px var(--tertiary-color)`;
-const shadowButtonHover = `7px 7px 10px 0px var(--tertiary-color)`;
-const shadowPressedHover = `7px 7px 10px 0px var(--secondary-color)`;
+const shadowPressed = `5px 5px 0px 0px var(--color-tertiary)`;
+const shadowButtonHover = `7px 7px 10px 0px var(--color-tertiary)`;
+const shadowPressedHover = `7px 7px 10px 0px var(--color-secondary)`;
 
 const button = `
   transition: .2s;
   transition: box-shadow .6s;
-  color: var(--secondary-color);
-  background: var(--tertiary-color);
+  color: var(--color-secondary);
+  background: var(--color-tertiary);
   appearance: none;
   border: none;
   box-shadow: ${shadowButton};
   padding: 10px;
   margin: 10px 0;
   &:hover {
-    color: var(--secondary-color);
-    background: var(--tertiary-color);
+    color: var(--color-secondary);
+    background: var(--color-tertiary);
     box-shadow: ${shadowPressedHover};
   }
 `;
@@ -30,11 +30,11 @@ const pressedButton = `
   transition: .2s;
   transition: box-shadow .6s;
   box-shadow: ${shadowPressed};
-  color: var(--tertiary-color);
-  background: var(--secondary-color);
+  color: var(--color-tertiary);
+  background: var(--color-secondary);
   &:hover {
-    color: var(--tertiary-color);
-    background: var(--secondary-color);
+    color: var(--color-tertiary);
+    background: var(--color-secondary);
     box-shadow: ${shadowButtonHover};
   }
 `;
@@ -59,11 +59,11 @@ export const Container = styled.div<{
   isDisplay: boolean;
   colors: IColor;
 }>`
-  --primary-color: ${(pr) => pr.colors.primary};
-  --secondary-color: ${(pr) => pr.colors.secondary};
-  --tertiary-color: ${(pr) => pr.colors.tertiary};
-  background: var(--primary-color);
-  color: var(--tertiary-color);
+  --color-primary: ${(pr) => pr.colors.primary};
+  --color-secondary: ${(pr) => pr.colors.secondary};
+  --color-tertiary: ${(pr) => pr.colors.tertiary};
+  background: var(--color-primary);
+  color: var(--color-tertiary);
   display: grid;
   grid-template-columns: 1fr 1fr;
   ${({ isDisplay }) => (isDisplay ? 'display: block;' : '')}
@@ -88,12 +88,12 @@ export const EditPanel = styled(noScroll)`
   }
 
   a {
-    color: var(--tertiary-color);
+    color: var(--color-tertiary);
     font-style: italic;
     transition: box-shadow 0.3s, background-color 0.3s;
     &:hover {
-      box-shadow: 0px 0px 15px 10px var(--secondary-color);
-      background-color: var(--secondary-color);
+      box-shadow: 0px 0px 15px 10px var(--color-secondary);
+      background-color: var(--color-secondary);
     }
   }
 
@@ -129,17 +129,17 @@ export const EditPanel = styled(noScroll)`
     transition: 0.3s;
     transition: width 0s;
     border: none;
-    box-shadow: inset 0px 0px 0px 3px var(--tertiary-color);
+    box-shadow: inset 0px 0px 0px 3px var(--color-tertiary);
     padding: 10px;
-    background-color: var(--primary-color);
-    color: var(--tertiary-color);
+    background-color: var(--color-primary);
+    color: var(--color-tertiary);
     &[type='radio'] {
       display: none;
     }
     &:focus {
-      background-color: var(--tertiary-color);
-      color: var(--secondary-color);
-      box-shadow: inset 0px 0px 3px 3px var(--primary-color);
+      background-color: var(--color-tertiary);
+      color: var(--color-secondary);
+      box-shadow: inset 0px 0px 3px 3px var(--color-primary);
     }
   }
 
@@ -169,7 +169,7 @@ export const PreviewPanel = styled(noScroll)`
     height: 100%;
   }
   margin: 0;
-  background-color: var(--tertiary-color);
+  background-color: var(--color-tertiary);
   padding: 50px 20px 100px;
 `;
 
@@ -181,6 +181,6 @@ export const TutorialPanel = styled(noScroll)`
     height: 100%;
   }
   margin: 0;
-  background-color: var(--tertiary-color);
+  background-color: var(--color-tertiary);
   padding: 50px 50px 100px;
 `;

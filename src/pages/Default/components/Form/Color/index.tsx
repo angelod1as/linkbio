@@ -63,7 +63,7 @@ const Color = ({ list, hook }: IProps) => {
       <Form>
         {Object.keys(list).map((each) => {
           return (
-            <label htmlFor={each} key={uuid()}>
+            <label htmlFor={each} key={each}>
               {t(each.replace(/^\w/, (c) => c.toUpperCase()))}
               <ColorPicker
                 color={list[each]}

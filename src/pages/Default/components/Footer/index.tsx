@@ -4,7 +4,7 @@ import { Trans } from 'react-i18next';
 import A from '../../../../components/A';
 
 const Styled = styled.footer`
-  background-color: var(--secondary-color);
+  background-color: var(--color-secondary);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -14,12 +14,12 @@ const Styled = styled.footer`
   font-size: 14px;
 
   a {
-    color: var(--tertiary-color);
+    color: var(--color-tertiary);
     font-style: italic;
     transition: box-shadow 0.3s, background-color 0.3s;
     &:hover {
-      box-shadow: 0px 0px 15px 10px var(--primary-color);
-      background-color: var(--primary-color);
+      box-shadow: 0px 0px 15px 10px var(--color-primary);
+      background-color: var(--color-primary);
     }
   }
 `;

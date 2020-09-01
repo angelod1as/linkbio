@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const white = '#e8e8e8';
-
 const centerFlex = styled.div`
   width: 100%;
   display: flex;
@@ -13,7 +11,7 @@ const centerFlex = styled.div`
 export const Container = styled(centerFlex)`
   max-width: 620px;
   margin: 0 auto;
-  color: ${white};
+  color: var(--color-primary);
 `;
 export const Header = styled(centerFlex)`
   img {
@@ -21,7 +19,7 @@ export const Header = styled(centerFlex)`
     width: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--secondary-color);
+    border: 3px solid var(--color-secondary);
   }
   h1 {
     margin: 20px;
@@ -36,11 +34,11 @@ export const Social = styled(centerFlex)`
     margin: 0 5px;
     width: 30px;
     height: 30px;
-    /* background-color: ${white}; */
+    /* background-color: var(--color-primary); */
     border-radius: 50%;
     svg {
       path {
-        fill: ${white};
+        fill: var(--color-primary);
       }
     }
     &:hover {
@@ -57,16 +55,16 @@ export const LinkHolder = styled(centerFlex)`
   a {
     transition: all 0.2s;
     text-decoration: none;
-    background-color: var(--tertiary-color);
-    border: 3px solid var(--secondary-color);
+    background-color: var(--color-tertiary);
+    border: 3px solid var(--color-secondary);
     margin: 10px 0;
     padding: 10px 30px;
-    color: ${white};
+    color: var(--color-primary);
     width: 100%;
     text-align: center;
     &:hover {
-      color: var(--tertiary-color);
-      background-color: var(--secondary-color);
+      color: var(--color-tertiary);
+      background-color: var(--color-secondary);
     }
   }
 `;

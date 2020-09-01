@@ -1,6 +1,13 @@
-const styles = () => {
+import IColor from '../../../../../../dtos/IColor';
+
+const styles = (color: IColor) => {
   return `
   <style>
+  :root {
+    --color-primary: ${color.primary};
+    --color-secondary: ${color.secondary};
+    --color-tertiary: ${color.tertiary};
+  }
   * {
   margin: 0;
   padding: 0;
@@ -12,9 +19,9 @@ const styles = () => {
   font-size: 18px;
   }
   body {
-  color: rgb(3, 37, 140);
+  color: var(--color-tertiary);
   -webkit-font-smoothing: antialiased;
-  background: rgb(242, 160, 175);
+  background: var(--color-primary);
   }
   .container {
   display: block;
@@ -23,7 +30,7 @@ const styles = () => {
   .main {
   min-height: 100vh;
   margin: 0;
-  background-color: #03258C;
+  background-color: var(--color-tertiary);
   border-left: none;
   padding: 50px 20px;
   }
@@ -46,7 +53,7 @@ const styles = () => {
   justify-content: center;
   max-width: 620px;
   margin: 0 auto;
-  color: #e8e8e8;
+  color: var(--color-primary);
   }
   .header {
   width: 100%;
@@ -71,7 +78,7 @@ const styles = () => {
   width: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #F2CB05;
+  border: 3px solid var(--color-secondary);
   }
   .header h1 {
   margin: 20px;
@@ -150,20 +157,20 @@ const styles = () => {
   transition: all 0.2s;
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: #03258C;
-  border: 3px solid #F2CB05;
+  background-color: var(--color-tertiary);
+  border: 3px solid var(--color-secondary);
   margin: 10px 0;
   padding: 10px 30px;
-  color: #e8e8e8;
+  color: var(--color-primary);
   width: 100%;
   text-align: center;
   }
   .links .holder a:hover {
-  color: #03258C;
-  background-color: #F2CB05;
+  color: var(--color-tertiary);
+  background-color: var(--color-secondary);
   }
   .footer {
-  background-color: #F2CB05;
+  background-color: var(--color-secondary);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -173,14 +180,14 @@ const styles = () => {
   font-size: 14px;
   }
   .footer p a {
-  color: #03258C;
+  color: var(--color-tertiary);
   font-style: italic;
   -webkit-transition: box-shadow 0.3s,background-color 0.3s;
   transition: box-shadow 0.3s,background-color 0.3s;
   }
   .footer p a:hover {
-  box-shadow: 0px 0px 15px 10px #F2A0AF;
-  background-color: #F2A0AF;
+  box-shadow: 0px 0px 15px 10px var(--color-primary);
+  background-color: var(--color-primary);
   }
 </style>
   `;

@@ -145,6 +145,7 @@ const Default = ({
               setSocialList={setSocialList}
               setHeaderList={setHeaderList}
               setLinkList={setLinkList}
+              setColorList={setColorList}
             />
 
             <Form

@@ -7,6 +7,7 @@ import importCode from './importCode';
 import ISocial from '../../../../dtos/ISocial';
 import IHeader from '../../../../dtos/IHeader';
 import ILinks from '../../../../dtos/ILinks';
+import IColor from '../../../../dtos/IColor';
 
 const ImportDiv = styled.div`
   margin: 40px 0;
@@ -20,9 +21,15 @@ interface IParams {
   setSocialList: React.Dispatch<React.SetStateAction<ISocial>>;
   setHeaderList: React.Dispatch<React.SetStateAction<IHeader>>;
   setLinkList: React.Dispatch<React.SetStateAction<ILinks[]>>;
+  setColorList: React.Dispatch<React.SetStateAction<IColor>>;
 }
 
-const Import = ({ setSocialList, setHeaderList, setLinkList }: IParams) => {
+const Import = ({
+  setSocialList,
+  setHeaderList,
+  setLinkList,
+  setColorList,
+}: IParams) => {
   const { t } = useTranslation();
   const history = useHistory();
   const [importType, setImportType] = useState('url');
@@ -41,10 +48,11 @@ const Import = ({ setSocialList, setHeaderList, setLinkList }: IParams) => {
       }
       // If valid code
     } else if (importContent.includes('<!--LINKBIO-CONTENT-->')) {
-      const { header, social, links } = importCode(importContent);
+      const { header, social, links, color } = importCode(importContent);
       setHeaderList(header);
       setSocialList(social);
       setLinkList(links);
+      setColorList(color);
       setImportContent('');
 
       // not url nor invalid code
@@ -55,6 +63,7 @@ const Import = ({ setSocialList, setHeaderList, setLinkList }: IParams) => {
     setHeaderList,
     setSocialList,
     setLinkList,
+    setColorList,
     importType,
     importContent,
     history,

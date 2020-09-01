@@ -16,25 +16,25 @@ import img11 from '../../../../assets/images/11.jpg';
 import A from '../../../../components/A';
 
 const Styled = styled.div`
-  background-color: var(--tertiary-color);
-  color: var(--primary-color);
+  background-color: var(--color-tertiary);
+  color: var(--color-primary);
   padding: 50px;
-  border: 5px solid var(--secondary-color);
+  border: 5px solid var(--color-secondary);
   min-height: 80vh;
 
   h1 {
     margin: 0 0 20px 0;
-    color: var(--secondary-color);
+    color: var(--color-secondary);
   }
 
   h2 {
     margin: 40px 0 20px;
-    color: var(--secondary-color);
+    color: var(--color-secondary);
   }
 
   h3 {
     margin: 40px 0 20px;
-    color: var(--secondary-color);
+    color: var(--color-secondary);
   }
 
   p {
@@ -51,7 +51,7 @@ const Styled = styled.div`
 
   hr {
     border: 0;
-    border-top: 1px dashed var(--primary-color);
+    border-top: 1px dashed var(--color-primary);
     margin: 40px 0;
   }
 
@@ -60,18 +60,18 @@ const Styled = styled.div`
     max-width: 500px;
     width: 100%;
     height: auto;
-    box-shadow: 10px 10px 0px 0px var(--secondary-color);
-    border: 1px solid var(--tertiary-color);
+    box-shadow: 10px 10px 0px 0px var(--color-secondary);
+    border: 1px solid var(--color-tertiary);
   }
 
   a {
-    color: var(--primary-color);
+    color: var(--color-primary);
     font-style: italic;
     transition: box-shadow 0.3s, background-color 0.3s;
     &:hover {
-      color: var(--tertiary-color);
-      box-shadow: 0px 0px 15px 10px var(--secondary-color);
-      background-color: var(--secondary-color);
+      color: var(--color-tertiary);
+      box-shadow: 0px 0px 15px 10px var(--color-secondary);
+      background-color: var(--color-secondary);
     }
   }
 `;
@@ -85,15 +85,15 @@ const Close = styled.button`
   height: 30px;
   border-radius: 50%;
   transition: 0.2s;
-  border: 3px solid var(--secondary-color);
-  color: var(--secondary-color);
+  border: 3px solid var(--color-secondary);
+  color: var(--color-secondary);
   font-size: 13px;
-  background-color: var(--tertiary-color);
+  background-color: var(--color-tertiary);
   &:hover {
-    border: 3px solid var(--tertiary-color);
-    background-color: var(--secondary-color);
-    box-shadow: 0px 0px 10px 5px var(--primary-color);
-    color: var(--tertiary-color);
+    border: 3px solid var(--color-tertiary);
+    background-color: var(--color-secondary);
+    box-shadow: 0px 0px 10px 5px var(--color-primary);
+    color: var(--color-tertiary);
   }
   & + button {
     margin: 0 5px;
