@@ -95,9 +95,9 @@ const importCode = (
     },
     links,
     color: {
-      primary: colors[0],
-      secondary: colors[1],
-      tertiary: colors[2],
+      primary: colors[0] || '#F2A0AF',
+      secondary: colors[1] || '#F2CB05',
+      tertiary: colors[2] || '#03258C',
     },
   };
 };

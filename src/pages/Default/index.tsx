@@ -122,15 +122,16 @@ const Default = ({
       setIsDisplay(false);
       const { search } = history.location;
       const information = search.split('?information=')[1];
-      const { social, header, links } = importString(information);
+      const { social, header, links, color } = importString(information);
       history.push('/en');
       setSocialList(social.list);
       setHeaderList(header.list);
       setLinkList(links.list);
+      setColorList(color ? color.list : colorList);
     } else {
       setIsDisplay(false);
     }
-  }, [i18n, lang, setIsDisplay, history]);
+  }, [i18n, lang, setIsDisplay, history, colorList]);
 
   return (
     <Container isDisplay={isDisplay} colors={colorList}>
