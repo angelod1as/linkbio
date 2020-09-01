@@ -1,31 +1,9 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
 import ColorPicker from 'rc-color-picker';
 import 'rc-color-picker/assets/index.css';
-import { v4 as uuid } from 'uuid';
 import IColor from '../../../../../dtos/IColor';
-
-import { bp } from '../../../../../styles/global';
-
-const Styled = styled.div`
-  margin: 20px 0;
-  @media ${bp.medium} {
-    margin-top: 30px;
-  }
-`;
-
-const Form = styled.form`
-  display: grid;
-  grid-gap: 0 20px;
-  grid-template-columns: repeat(2, 1fr);
-  @media ${bp.medium} {
-    display: block;
-    label {
-      margin-top: 15px;
-    }
-  }
-`;
+import { Styled, Wrapper, ColorStyle } from './style';
 
 interface IProps {
   list: IColor;
@@ -60,11 +38,11 @@ const Color = ({ list, hook }: IProps) => {
   return (
     <Styled>
       <h3>{t('Color')}</h3>
-      <Form>
-        {Object.keys(list).map((each) => {
+      <Wrapper>
+        {Object.keys(list).map((each, index) => {
+          const last = Object.keys(list).length - 1 === index;
           return (
-            <label htmlFor={each} key={each}>
-              {t(each.replace(/^\w/, (c) => c.toUpperCase()))}
+            <ColorStyle key={each} last={last}>
               <ColorPicker
                 color={list[each]}
                 onChange={(e: IPicker) =>
@@ -73,10 +51,10 @@ const Color = ({ list, hook }: IProps) => {
               >
                 <span className="rc-color-picker-trigger" />
               </ColorPicker>
-            </label>
+            </ColorStyle>
           );
         })}
-      </Form>
+      </Wrapper>
     </Styled>
   );
 };
