@@ -8,6 +8,7 @@ import IHeader from '../../dtos/IHeader';
 import ISocial from '../../dtos/ISocial';
 import ILinks from '../../dtos/ILinks';
 import ILists from '../../dtos/ILists';
+import IColor from '../../dtos/IColor';
 
 import importString from './components/Import/importString';
 
@@ -46,6 +47,12 @@ const Default = ({
     whatsapp: '',
   });
 
+  const [colorList, setColorList] = useState<IColor>({
+    primary: '#F2A0AF',
+    secondary: '#F2CB05',
+    font: '#03258C',
+  });
+
   const [headerList, setHeaderList] = useState<IHeader>({
     name: "Cronofobico's Links",
     image: '',
@@ -82,6 +89,10 @@ const Default = ({
     links: {
       list: linkList,
       hook: setLinkList,
+    },
+    color: {
+      list: colorList,
+      hook: setColorList,
     },
   };
 
@@ -140,12 +151,14 @@ const Default = ({
               social={lists.social}
               header={lists.header}
               links={lists.links}
+              color={lists.color}
             />
 
             <Export
               social={lists.social}
               header={lists.header}
               links={lists.links}
+              color={lists.color}
               setIsTutorial={setIsTutorial}
               isTutorial={isTutorial}
             />
@@ -162,6 +175,7 @@ const Default = ({
             social={lists.social}
             header={lists.header}
             links={lists.links}
+            color={lists.color}
           />
         </PreviewPanel>
       )}

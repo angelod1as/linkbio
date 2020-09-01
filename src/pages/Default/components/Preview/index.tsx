@@ -14,7 +14,14 @@ const Preview = ({ social, header, links }: ILists) => {
   return (
     <Container>
       <Header>
-        <img src={header.list.image} alt="" />
+        <img
+          src={
+            header.list.image === ''
+              ? 'https://api.adorable.io/avatars/285/ph.png'
+              : header.list.image
+          }
+          alt=""
+        />
         <h1>{header.list.name}</h1>
       </Header>
       <Social>

@@ -54,6 +54,7 @@ const Export = ({
   social,
   header,
   links,
+  color,
   setIsTutorial,
   isTutorial,
 }: IProps) => {
@@ -82,16 +83,16 @@ const Export = ({
 
   const exportList = useCallback(
     (type) => {
-      const string = templates(type, { social, header, links });
+      const string = templates(type, { social, header, links, color });
       setFinalString(string);
     },
-    [social, header, links],
+    [social, header, links, color],
   );
 
   useEffect(() => {
-    const string = templates('url', { social, header, links });
+    const string = templates('url', { social, header, links, color });
     setFinalString(string);
-  }, [exportList, social, header, links]);
+  }, [exportList, social, header, links, color]);
 
   const handleChange = useCallback(
     (type) => {

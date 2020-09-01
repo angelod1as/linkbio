@@ -2,13 +2,16 @@ import ILists from '../../../../../dtos/ILists';
 import getUrl from './getUrl';
 import getCode from './getCode';
 
-const templates = (type: string, { social, header, links }: ILists): string => {
+const templates = (
+  type: string,
+  { social, header, links, color }: ILists,
+): string => {
   if (type === 'url') {
-    return getUrl({ social, header, links });
+    return getUrl({ social, header, links, color });
   }
 
   if (type === 'code') {
-    return getCode({ social, header, links });
+    return getCode({ social, header, links, color });
   }
 
   // Making this easier to implement other modes
