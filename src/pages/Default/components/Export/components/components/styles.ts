@@ -115,6 +115,9 @@ const styles = (color: IColor) => {
   .social a:hover {
   opacity: 0.5;
   }
+  .social svg {
+    fill: var(--color-primary)
+  }
   .links {
   width: 100%;
   display: -webkit-box;
