@@ -63,7 +63,7 @@
     "@types/react-router-dom": "^5.1.4",
     "@types/styled-components": "^5.1.0",
     "@types/uuid": "^8.0.1",
-    "@types/yup": "^0.26.37",
+    "@types/yup": "^0.29.11",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
     "axios-mock-adapter": "^1.18.1",
