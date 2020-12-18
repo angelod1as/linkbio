@@ -15,7 +15,7 @@
     "i18next-http-backend": "^1.0.17",
     "polished": "^3.6.5",
     "rc-color-picker": "^1.2.6",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.13.1",
     "react-i18next": "^11.7.0",
     "react-router-dom": "^5.1.2",
