@@ -17,7 +17,7 @@ const Preview = ({ social, header, links }: ILists) => {
         <img
           src={
             header.list.image === ''
-              ? 'https://api.adorable.io/avatars/285/ph.png'
+              ? 'https://avataaars.io/?avatarStyle=Circle&topType=NoHair&accessoriesType=Round&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light'
               : header.list.image
           }
           alt=""
