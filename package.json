@@ -13,7 +13,7 @@
     "i18next": "^19.8.8",
     "i18next-browser-languagedetector": "^5.0.1",
     "i18next-http-backend": "^1.0.22",
-    "polished": "^3.6.5",
+    "polished": "^4.1.1",
     "rc-color-picker": "^1.2.6",
     "react": "^16.14.0",
     "react-dom": "^16.13.1",
