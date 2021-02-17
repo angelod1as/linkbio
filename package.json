@@ -12,7 +12,7 @@
     "axios": "^0.21.1",
     "i18next": "^19.8.8",
     "i18next-browser-languagedetector": "^5.0.1",
-    "i18next-http-backend": "^1.0.22",
+    "i18next-http-backend": "^1.1.0",
     "polished": "^3.6.5",
     "rc-color-picker": "^1.2.6",
     "react": "^16.14.0",
