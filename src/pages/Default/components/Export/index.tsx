@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useTranslation, Trans } from 'react-i18next';
 import ILists from '../../../../dtos/ILists';
 import templates from './components';
-import api from '../../../../services/api';
+// import api from '../../../../services/api';
 
 import { bp } from '../../../../styles/global';
 
@@ -62,24 +62,24 @@ const Export = ({
   const [exportType, setExportType] = useState('url');
   const [finalString, setFinalString] = useState('');
   const [shortened, setShortened] = useState('');
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
 
-  const shorten = useCallback(() => {
-    setShortened('');
-    const encoded = encodeURIComponent(finalString);
-    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-    api
-      .get(
-        `${corsProxy}https://tinyurl.com/create.php?source=create&url=${encoded}`,
-      )
-      .then(({ data }) => {
-        const url = data
-          .split('data-clipboard-text="')[1]
-          .split('"><small>')[0];
-        setShortened(url);
-      })
-      .catch((err) => setError(`${t(`Export error`)}: ${err}`));
-  }, [finalString, t]);
+  // const shorten = useCallback(() => {
+  //   setShortened('');
+  //   const encoded = encodeURIComponent(finalString);
+  //   const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+  //   api
+  //     .get(
+  //       `${corsProxy}https://tinyurl.com/create.php?source=create&url=${encoded}`,
+  //     )
+  //     .then(({ data }) => {
+  //       const url = data
+  //         .split('data-clipboard-text="')[1]
+  //         .split('"><small>')[0];
+  //       setShortened(url);
+  //     })
+  //     .catch((err) => setError(`${t(`Export error`)}: ${err}`));
+  // }, [finalString, t]);
 
   const exportList = useCallback(
     (type) => {
@@ -150,9 +150,13 @@ const Export = ({
       />
 
       {exportType === 'url' ? (
-        <button type="button" onClick={shorten}>
-          {t('Get short')}
-        </button>
+        <a
+          href="https://tinyurl.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <button type="button">{t('Get short')}</button>
+        </a>
       ) : (
         ''
       )}
@@ -162,7 +166,7 @@ const Export = ({
         </button>
       </div>
 
-      {error ? <small>{error}</small> : ''}
+      {/* {error ? <small>{error}</small> : ''} */}
 
       {shortened ? (
         <input
