@@ -45,6 +45,7 @@ const Default = ({
     linkedin: 'http://www.linkedin.com/in/angelod1as',
     twitter: 'http://www.twitter.com/oicronofobico',
     whatsapp: '',
+    telegram: 'oicronofobico',
   });
 
   const [colorList, setColorList] = useState<IColor>({
@@ -119,7 +120,6 @@ const Default = ({
       setSocialList(social.list);
       setHeaderList(header.list);
       setLinkList(links.list);
-      // setColorList(color && color.list ? color.list : colorList);
       setColorList((startingColor) =>
         color && color.list ? color.list : startingColor,
       );

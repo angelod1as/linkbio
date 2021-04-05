@@ -5,4 +5,5 @@ export default interface ISocial {
   linkedin: string;
   twitter: string;
   whatsapp: string;
+  telegram: string;
 }

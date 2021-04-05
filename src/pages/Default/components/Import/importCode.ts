@@ -69,6 +69,23 @@ const importCode = (
         .split('wa.me/')[1]
     : '';
 
+  const telegram = html.includes('<!-- import=telegram-start -->')
+    ? html
+        .split('<!-- import=telegram-start -->')[1]
+        .split('<!-- import=telegram-end -->')[0]
+        .split('<a href="')[1]
+        .split('" rel')[0]
+        .split('t.me/')[1]
+    : '';
+
+  console.log(
+    html
+      .split('<!-- import=telegram-start -->')[1]
+      .split('<!-- import=telegram-end -->')[0]
+      .split('<a href="')[1]
+      .split('" rel')[0],
+  );
+
   const links = html
     .split('<!-- import=linklist-start -->')[1]
     .split('<!-- import=linklist-end -->')[0]
@@ -92,6 +109,7 @@ const importCode = (
       linkedin,
       twitter,
       whatsapp,
+      telegram,
     },
     links,
     color: {

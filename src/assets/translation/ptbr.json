@@ -44,9 +44,13 @@
     "See tutorial": "Ver tutorial do modo código",
     "Close tutorial": "Fechar tutorial",
     "tutorial": "<0>Tutorial</0> <1>⟶ Publique sua lista em 5 passos fáceis</1> <2>Conta</2> <3> Para colocar nossa lista na internet, precisamos hospedá-la no GitHub Pages.</3> <4> Não se preocupe com os termos técnicos, vou guiá-lo durante o processso. </4> <5> ⟶ Crie uma conta no <1>GitHub</1> (é grátis!). </5><6/><7>⟶ Responda o que quiser nos próximos passos</7> <8/> <9>⟶ Confirme seu e-mail.</9> <10>Voilá, conta criada!</10> <11>Repositório</11> <12> Vá até a homepage do <1>GitHub</1>. </12><13>⟶ Clique no símbolo de  + (topo direito)</13> <14> ⟶ Clique em <1>New Repository </1> (Novo repositório). </14> <15/> <16> ⟶ Escreva o nome do repositório. Ele <1>precisa</1> terminar com \".github.io\". </16> <17>Por exemplo, estou usando temposfantasticos.github.io</17> <18> ⟶ Selecione <1>Public</1> (Público). </18> <19> ⟶ Clique em <1>Create Repository</1> (Criar Repositório). </19> <20/> <21>Você verá seu repositório recém criado. Parabéns!</21><22>Novo arquivo</22> <23> ⟶ Clique no (escondido) link <1>creating a new file</1> (criando um novo arquivo). </23> <24/> <25> ⟶ Nomeie seu arquivo como <1>index.html</1> </25> <26>⟶ No campo de baixo, cole o código gerado no site</26> <27> (Opcional: você pode mudar \"no wrap\" para \"soft wrap\" para ver melhor o arquivo) </27> <28/><29> ⟶ Clique em <1>Commit new file</1> no fim da página. Seu arquivo está pronto :) </29> <30>Entrar ao-vivo</30> <31> ⟶ No seu repositório, clique em <1>Settings</1> (Configurações). </31> <32/> <33> ⟶ Desça a página até ver a seção <1>GitHub Pages</1>. </33> <34> ⟶ Se você ver a mensagem azul com a mensagem \"Your site is ready to be published at...\", seu site já está publicado! Vá para o próximo passo. </34> <35/> <36>Se não, veja o seguinte:</36> <37> ⟶ Provavelmente há uma caixa de seleção com a palavra 'None'. Clique nela e selecione <1>Master</1>, então clique em <3>Save</3></37><38>⟶ Sua página será publicada.</38> <39>Meunome.com</39> <40> Quer um domínio customizado (ou, para leigos, um endereço www.meunome.com?) </40> <41> Clique no link \"learn more\" (saiba mais) sob a seção <1>Custom domain</1>, na parte do GitHub Pages das configurações. </41> <42>Atualizando sua lista</42> <43> ⟶ Logue em sua conta do GitHub e clique em seu repositório, na coluna da esquerda: </43> <44/> <45>⟶ Clique no arquivo index.html</45> <46/> <47>⟶ Clique no símbolo da canetinha:</47> <48/> <49> ⟶ Cole o novo código (do site Linkbio) e clique em Commit changes. </49> <50> ⟶ Espere alguns segundos e... pronto! Tudo atualizado em poucos cliques.</50> <51 /> <52>Quer melhorar esse tutorial ou pedir ajuda?</52><53> Abra um issue no <2>repositório do Linkbio no GitHub</2>.</53>",
-    "Whatsapp number": "Número do Whatsapp",
-    "Whatsapp format": "Formato do número",
+    "Whatsapp": "Whatsapp",
+    "Whatsapp format": "Formato para Whatsapp",
     "Whatsapp format example":"[Código do país][Estado][Número]",
-    "Example num": "Exemplo: 551199999999"
+    "Example num": "Exemplo: 551199999999",
+    "Telegram": "Telegram",
+    "Telegram format": "Formato para Telegram",
+    "Telegram format example": "Só funciona com usuário",
+    "Telegram user": "Exemplo: oicronofobico"
   }
 }

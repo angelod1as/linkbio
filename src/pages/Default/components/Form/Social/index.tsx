@@ -108,7 +108,7 @@ const Social = ({ list, hook }: IProps) => {
         </label>
 
         <label htmlFor="whatsapp" className="phonenum">
-          {t('Whatsapp number')}
+          {t('Whatsapp')}
           <input
             type="tel"
             name="whatsapp"
@@ -122,6 +122,23 @@ const Social = ({ list, hook }: IProps) => {
           <small>{t('Whatsapp format')}:</small>
           <small>{t('Whatsapp format example')}</small>
           <small>{t('Example num')}</small>
+        </Helper>
+
+        <label htmlFor="telegram">
+          {t('Telegram')}
+          <input
+            type="text"
+            name="telegram"
+            id="telegram"
+            onChange={(e) => handleChange(e)}
+            value={list.telegram}
+          />
+        </label>
+
+        <Helper>
+          <small>{t('Telegram format')}:</small>
+          <small>{t('Telegram format example')}</small>
+          <small>{t('Telegram user')}</small>
         </Helper>
       </Form>
     </Styled>

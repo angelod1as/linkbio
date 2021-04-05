@@ -9,6 +9,7 @@ import Instagram from './logos/Instagram';
 import Twitter from './logos/Twitter';
 import Linkedin from './logos/Linkedin';
 import Whatsapp from './logos/Whatsapp';
+import Telegram from './logos/Telegram';
 
 const Preview = ({ social, header, links }: ILists) => {
   return (
@@ -56,6 +57,13 @@ const Preview = ({ social, header, links }: ILists) => {
         {social.list.whatsapp ? (
           <A href={`http://wa.me/${social.list.whatsapp}`}>
             <Whatsapp />
+          </A>
+        ) : (
+          ''
+        )}
+        {social.list.telegram ? (
+          <A href={`http://t.me/${social.list.telegram}`}>
+            <Telegram />
           </A>
         ) : (
           ''
