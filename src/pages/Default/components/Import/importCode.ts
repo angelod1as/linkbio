@@ -78,14 +78,6 @@ const importCode = (
         .split('t.me/')[1]
     : '';
 
-  console.log(
-    html
-      .split('<!-- import=telegram-start -->')[1]
-      .split('<!-- import=telegram-end -->')[0]
-      .split('<a href="')[1]
-      .split('" rel')[0],
-  );
-
   const links = html
     .split('<!-- import=linklist-start -->')[1]
     .split('<!-- import=linklist-end -->')[0]
