@@ -5749,10 +5749,10 @@ humanize-url@^1.0.0:
     normalize-url "^1.0.0"
     strip-url-auth "^1.0.0"
 
-i18next-browser-languagedetector@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-5.0.1.tgz#02a18f57f79b5de06279feb9a84c80ea4dde7da9"
-  integrity sha512-7K4A6DJ2rNz3Yd835Y493UgkzUxgpGsCeIMKLGkt6Ps0cbgSaJ+LdATFNFA+ujp2brmsUM9BeDThXKhabXUbUw==
+i18next-browser-languagedetector@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-6.1.0.tgz#83d3a920d5f300424aa37bd4c0a09c267844de71"
+  integrity sha512-NXbr/qPqkg6VyUwPrzmVOAafqIk1zdjzhYVxZWoSi338XEGmuOeroEglLdR8nJUJcf5BfOSHva80tqCPwXFTFQ==
   dependencies:
     "@babel/runtime" "^7.5.5"
 
