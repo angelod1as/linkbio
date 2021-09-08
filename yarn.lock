@@ -5763,10 +5763,10 @@ i18next-http-backend@^1.0.22:
   dependencies:
     node-fetch "2.6.1"
 
-i18next@^19.8.8:
-  version "19.8.8"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.8.8.tgz#9347cdd2063f0b03670e24c3165f0c4b997ccbd3"
-  integrity sha512-GCwSImEZYqUKgb1gUfIw/LMeItpcypdMOhjlHovI7qyBuaIHR8P7z9mfBuxlyl3yDuRnAsAcJv0iynDh71SQ4g==
+i18next@^20.6.1:
+  version "20.6.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.6.1.tgz#535e5f6e5baeb685c7d25df70db63bf3cc0aa345"
+  integrity sha512-yCMYTMEJ9ihCwEQQ3phLo7I/Pwycf8uAx+sRHwwk5U9Aui/IZYgQRyMqXafQOw5QQ7DM1Z+WyEXWIqSuJHhG2A==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
